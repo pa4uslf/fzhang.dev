@@ -1,0 +1,22 @@
+<!-- /layouts/partials/lead-magnet.html -->
+<div class="lead-magnet-box" style="background-color: #f0f8ff; border: 2px solid #add8e6; border-radius: 8px; padding: 20px; margin: 30px 0; text-align: center;">
+    <h3 style="margin-top: 0;">{{ .title | default "与我联系" }}</h3>
+    <p>{{ .description | default "期待与你交流，共同成长！" }}</p>
+
+    <div class="contact-info" style="margin-top: 15px;">
+        {{ with .wechat }}
+            <p style="margin: 5px 0;"><strong>微信号:</strong> {{ . }}</p>
+        {{ end }}
+
+        {{ with .email }}
+            <p style="margin: 5px 0;"><strong>邮箱:</strong> <a href="mailto:{{ . }}">{{ . }}</a></p>
+        {{ end }}
+
+        {{ with .qrcode }}
+            <div style="margin-top: 10px;">
+                <p style="margin-bottom: 5px;"><strong>扫码添加微信:</strong></p>
+                <img src="{{ . | relURL }}" alt="微信二维码" style="width: 150px; height: 150px; margin: 0 auto;">
+            </div>
+        {{ end }}
+    </div>
+</div>
