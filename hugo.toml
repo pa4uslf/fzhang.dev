@@ -1,0 +1,4 @@
+baseURL = 'https://fzhang.dev/'
+languageCode = 'zh-cn'
+title = 'Frank Zhang的个人网站'
+theme = 'ananke'
