@@ -6,8 +6,15 @@
     <description>Recent content in Posts on Frank Zhang的个人网站</description>
     <generator>Hugo</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 30 Jul 2025 15:17:57 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 31 Jul 2025 14:55:57 +0800</lastBuildDate>
     <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Pkill_loginwindow</title>
+      <link>http://localhost:1313/posts/pkill_loginwindow/</link>
+      <pubDate>Thu, 31 Jul 2025 14:55:57 +0800</pubDate>
+      <guid>http://localhost:1313/posts/pkill_loginwindow/</guid>
+      <description>&lt;h1 id=&#34;误输-pkill-后-mac-桌面全乱了别慌90-的人不知道背后是这个进程在-搞事&#34;&gt;误输 pkill 后 Mac 桌面全乱了？别慌，90% 的人不知道背后是这个进程在 “搞事”&lt;/h1&gt;&#xA;&lt;p&gt;你有没有过这种经历？在终端敲了个 pkill 命令，下一秒 Mac 桌面突然 “变脸”—— 壁纸变回默认、Dock 栏图标乱了套，连打开的软件都一个个报错退出。&lt;/p&gt;&#xA;&lt;p&gt;明明只是想结束一个小进程，怎么整个系统像 “重启” 了一样？&lt;/p&gt;&#xA;&lt;p&gt;其实，你误杀的不是普通进程，而是 Mac 图形界面的 “总管家”——loginwindow。今天就用大白话拆解清楚，到底发生了什么。&lt;/p&gt;&#xA;&lt;h2 id=&#34;一先搞懂w-命令里的-console-是谁&#34;&gt;一、先搞懂：w 命令里的 “console” 是谁？&lt;/h2&gt;&#xA;&lt;p&gt;在终端输 w 命令时，你可能见过一行带 “console” 的记录。别误会，它不是系统里的隐藏用户。&lt;/p&gt;&#xA;&lt;p&gt;console：代表 “正在用屏幕、键盘直接操作的你”—— 也就是当前活跃的图形桌面会话（简单说，就是你眼前这个能点能拖的界面）。&lt;/p&gt;&#xA;&lt;p&gt;ttys00X：才是你打开的终端标签页，属于 “伪终端”，和桌面界面不是一回事。&lt;/p&gt;&#xA;&lt;p&gt;所以看到 “console”，其实就是在说 “你的桌面正在运行的会话”。&lt;/p&gt;&#xA;&lt;h2 id=&#34;二pkill-到底做了什么&#34;&gt;二、pkill 到底做了什么？&lt;/h2&gt;&#xA;&lt;p&gt;pkill 的作用是 “按名称杀进程”，但如果命令写得太模糊，就可能 “误杀” 系统关键进程。&lt;/p&gt;&#xA;&lt;p&gt;而和 “console” 会话绑定的，正是 loginwindow —— 这个进程，堪称 Mac 图形界面的 “心脏”。&lt;/p&gt;&#xA;&lt;h2 id=&#34;三loginwindow你的桌面-总管家&#34;&gt;三、loginwindow：你的桌面 “总管家”&lt;/h2&gt;&#xA;&lt;p&gt;登录 Mac 时，输入密码的瞬间，loginwindow 就启动了。它的工作，说出来你肯定熟：&lt;/p&gt;&#xA;&lt;p&gt;1.加载桌面环境：Dock 栏的图标排列、菜单栏的设置、Finder 的文件显示，全靠它指挥；&lt;/p&gt;&#xA;&lt;p&gt;2.记住你的习惯：比如你设的壁纸、Dock 栏位置，都是它在维护；&lt;/p&gt;&#xA;&lt;p&gt;3.当 “家长”：你从 Launchpad 或 Dock 点开的所有软件（浏览器、文档、视频），最终 “爸爸” 都是 loginwindow。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Coreduet Discovery</title>
       <link>http://localhost:1313/posts/coreduet-discovery/</link>
