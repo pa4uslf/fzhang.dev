@@ -2,13 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/posts/5gs_of_salt/</loc>
-    <lastmod>2025-08-03T20:36:59+08:00</lastmod>
-  </url><url>
     <loc>http://localhost:1313/</loc>
-    <lastmod>2025-08-03T20:36:59+08:00</lastmod>
+    <lastmod>2025-08-08T15:35:39+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/</loc>
+    <lastmod>2025-08-08T15:35:39+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/vim%E6%90%9C%E7%B4%A2%E8%B7%B3%E8%BF%87%E5%8C%B9%E9%85%8D%E9%A1%B9/</loc>
+    <lastmod>2025-08-08T15:35:39+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/5gs_of_salt/</loc>
     <lastmod>2025-08-03T20:36:59+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/pkill_loginwindow/</loc>

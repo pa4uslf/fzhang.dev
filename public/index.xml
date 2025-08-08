@@ -6,8 +6,15 @@
     <description>Recent content on Frank Zhang的个人网站</description>
     <generator>Hugo</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 03 Aug 2025 20:36:59 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 08 Aug 2025 15:35:39 +0800</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Vim搜索跳过匹配项？原因与3种解决方案</title>
+      <link>http://localhost:1313/posts/vim%E6%90%9C%E7%B4%A2%E8%B7%B3%E8%BF%87%E5%8C%B9%E9%85%8D%E9%A1%B9/</link>
+      <pubDate>Fri, 08 Aug 2025 15:35:39 +0800</pubDate>
+      <guid>http://localhost:1313/posts/vim%E6%90%9C%E7%B4%A2%E8%B7%B3%E8%BF%87%E5%8C%B9%E9%85%8D%E9%A1%B9/</guid>
+      <description>&lt;h1 id=&#34;vim搜索跳过匹配项原因与3种解决方案&#34;&gt;vim搜索跳过匹配项？原因与3种解决方案&lt;/h1&gt;&#xA;&lt;h2 id=&#34;你是否也被-vim-的-反常-给搞懵过&#34;&gt;你是否也被 Vim 的 “反常” 给搞懵过？&lt;/h2&gt;&#xA;&lt;p&gt;明明按下 &lt;code&gt;gg&lt;/code&gt; 把光标移动到了文件开头位置，使用 &lt;code&gt;/&lt;/code&gt; 来搜索行首的字符的时候，Vim 却好像没看见一样，直接跳到了第二个匹配项。&lt;/p&gt;&#xA;&lt;p&gt;为了选中第一个匹配项，你不得不：狂按 &lt;code&gt;n&lt;/code&gt; 让搜索绕回到文件开头，或者先按 &lt;code&gt;G&lt;/code&gt; 跳到文件末尾，然后再重新进行搜索。&lt;/p&gt;&#xA;&lt;p&gt;这样的操作太不符合直觉了，以至于很多人的第一反应都是：“这绝对是 Vim 的 Bug 吧？” 花几个小时去查找资料，最后却一无所获。&lt;/p&gt;&#xA;&lt;h2 id=&#34;问题的核心这不是-bug而是没看懂规则&#34;&gt;问题的核心：这不是 Bug，而是没看懂规则&lt;/h2&gt;&#xA;&lt;p&gt;实际上，这隐藏在 Vim 的普通模式下 &lt;code&gt;/&lt;/code&gt; 命令的工作逻辑当中：&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;&lt;code&gt;/&lt;/code&gt; 命令的搜索范围是：从光标当前位置的下一个字符开始，朝着向前（也就是文件末尾方向）进行搜索。&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;把之前的操作拆解一下：&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;code&gt;gg&lt;/code&gt;：光标精准定位在第一行的第一个字符上面。&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;/搜索语法&lt;/code&gt;：Vim 严格遵守规则，从 “光标下一个字符” 开始查找。&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;结果可想而知：行首那个字符，从一开始就不在搜索范围之内。Vim 自然就会直接去查找第二个匹配项。&lt;/p&gt;&#xA;&lt;p&gt;同理，&lt;code&gt;?&lt;/code&gt; 命令（向后搜索）也是一样的：从光标&lt;strong&gt;前一个字符&lt;/strong&gt;开始，往文件开头的方向进行搜索。&lt;/p&gt;&#xA;&lt;h3 id=&#34;难怪这些操作能够-歪打正着&#34;&gt;难怪这些操作能够 “歪打正着”&lt;/h3&gt;&#xA;&lt;p&gt;想通了规则，之前的 “怪异” 情况就有了答案：&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;按 &lt;code&gt;n&lt;/code&gt; 能够找到&lt;/strong&gt;：因为 Vim 默认开启了 &lt;code&gt;wrapscan&lt;/code&gt;（环绕搜索），搜索到底部的时候会绕回到开头，自然就能够命中首行。&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;先按下 &lt;code&gt;G&lt;/code&gt; 再使用 &lt;code&gt;/&lt;/code&gt; 能够找到&lt;/strong&gt;：光标在末尾的时候，向前搜索会触发 &lt;code&gt;wrapscan&lt;/code&gt;，从开头进行完整扫描，首行匹配项当然就跑不掉了。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;3-个优雅的解决方案告别-绕路&#34;&gt;3 个优雅的解决方案，告别 “绕路”&lt;/h2&gt;&#xA;&lt;p&gt;既然知道了根源，那就不用再依赖 &lt;code&gt;G&lt;/code&gt; + &lt;code&gt;/&lt;/code&gt; 或者狂按 &lt;code&gt;n&lt;/code&gt; 了。Vim 早就为你准备好了更直接的方法：&lt;/p&gt;</description>
+    </item>
     <item>
       <title>5Gs_of_salt</title>
       <link>http://localhost:1313/posts/5gs_of_salt/</link>

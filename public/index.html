@@ -47,8 +47,8 @@
   <meta property="og:type" content="website">
 
   <meta itemprop="name" content="Frank Zhang的个人网站">
-  <meta itemprop="datePublished" content="2025-08-03T20:36:59+08:00">
-  <meta itemprop="dateModified" content="2025-08-03T20:36:59+08:00">
+  <meta itemprop="datePublished" content="2025-08-08T15:35:39+08:00">
+  <meta itemprop="dateModified" content="2025-08-08T15:35:39+08:00">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Frank Zhang的个人网站">
 
@@ -103,6 +103,51 @@
 
       
       <section class="w-100 mw8">
+        
+          <div class="w-100 mb4 relative">
+            
+<article class="bb b--black-10">
+  <div class="db pv4 ph3 ph0-l dark-gray no-underline">
+    <div class="flex-column flex-row-ns flex">
+      
+      <div class="blah w-100">
+        <h1 class="f3 fw1 athelas mt0 lh-title">
+          <a href="/posts/vim%E6%90%9C%E7%B4%A2%E8%B7%B3%E8%BF%87%E5%8C%B9%E9%85%8D%E9%A1%B9/" class="color-inherit dim link">
+            Vim搜索跳过匹配项？原因与3种解决方案
+            </a>
+        </h1>
+        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
+          <h1 id="vim搜索跳过匹配项原因与3种解决方案">vim搜索跳过匹配项？原因与3种解决方案</h1>
+<h2 id="你是否也被-vim-的-反常-给搞懵过">你是否也被 Vim 的 “反常” 给搞懵过？</h2>
+<p>明明按下 <code>gg</code> 把光标移动到了文件开头位置，使用 <code>/</code> 来搜索行首的字符的时候，Vim 却好像没看见一样，直接跳到了第二个匹配项。</p>
+<p>为了选中第一个匹配项，你不得不：狂按 <code>n</code> 让搜索绕回到文件开头，或者先按 <code>G</code> 跳到文件末尾，然后再重新进行搜索。</p>
+<p>这样的操作太不符合直觉了，以至于很多人的第一反应都是：“这绝对是 Vim 的 Bug 吧？” 花几个小时去查找资料，最后却一无所获。</p>
+<h2 id="问题的核心这不是-bug而是没看懂规则">问题的核心：这不是 Bug，而是没看懂规则</h2>
+<p>实际上，这隐藏在 Vim 的普通模式下 <code>/</code> 命令的工作逻辑当中：</p>
+<p><strong><code>/</code> 命令的搜索范围是：从光标当前位置的下一个字符开始，朝着向前（也就是文件末尾方向）进行搜索。</strong></p>
+<p>把之前的操作拆解一下：</p>
+<ol>
+<li><code>gg</code>：光标精准定位在第一行的第一个字符上面。</li>
+<li><code>/搜索语法</code>：Vim 严格遵守规则，从 “光标下一个字符” 开始查找。</li>
+</ol>
+<p>结果可想而知：行首那个字符，从一开始就不在搜索范围之内。Vim 自然就会直接去查找第二个匹配项。</p>
+<p>同理，<code>?</code> 命令（向后搜索）也是一样的：从光标<strong>前一个字符</strong>开始，往文件开头的方向进行搜索。</p>
+<h3 id="难怪这些操作能够-歪打正着">难怪这些操作能够 “歪打正着”</h3>
+<p>想通了规则，之前的 “怪异” 情况就有了答案：</p>
+<ul>
+<li><strong>按 <code>n</code> 能够找到</strong>：因为 Vim 默认开启了 <code>wrapscan</code>（环绕搜索），搜索到底部的时候会绕回到开头，自然就能够命中首行。</li>
+<li><strong>先按下 <code>G</code> 再使用 <code>/</code> 能够找到</strong>：光标在末尾的时候，向前搜索会触发 <code>wrapscan</code>，从开头进行完整扫描，首行匹配项当然就跑不掉了。</li>
+</ul>
+<h2 id="3-个优雅的解决方案告别-绕路">3 个优雅的解决方案，告别 “绕路”</h2>
+<p>既然知道了根源，那就不用再依赖 <code>G</code> + <code>/</code> 或者狂按 <code>n</code> 了。Vim 早就为你准备好了更直接的方法：</p>
+        </div>
+        <a href="/posts/vim%E6%90%9C%E7%B4%A2%E8%B7%B3%E8%BF%87%E5%8C%B9%E9%85%8D%E9%A1%B9/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+      </div>
+    </div>
+  </div>
+</article>
+
+          </div>
         
           <div class="w-100 mb4 relative">
             
@@ -208,43 +253,6 @@
 
           </div>
         
-          <div class="w-100 mb4 relative">
-            
-<article class="bb b--black-10">
-  <div class="db pv4 ph3 ph0-l dark-gray no-underline">
-    <div class="flex-column flex-row-ns flex">
-      
-      <div class="blah w-100">
-        <h1 class="f3 fw1 athelas mt0 lh-title">
-          <a href="/posts/coreduet-discovery/" class="color-inherit dim link">
-            Coreduet Discovery
-            </a>
-        </h1>
-        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
-          <p>清晨醒来去摸电脑的那一刻，整个人愣住——</p>
-<p>充电器整晚没拔，睡了8小时后，电量却从100%一路滑到89%。</p>
-<p>电池图标里那一行小字刺得人眼睛疼：「电池用量极小，充电已暂停」。</p>
-<p>三天前为了对付发热，把 CoreDuet 数据库删掉，竟在这儿埋下了伏笔。</p>
-<h2 id="一当智能系统忘掉该怎么省电">一、当智能系统「忘掉」该怎么省电</h2>
-<p>CoreDuet 数据库其实就是 Mac 的「习惯日记」，它负责：</p>
-<p>1.把每天打开的软件统统记下来</p>
-<p>2.分析你固定插电的时段</p>
-<p>3.提前判断啥时候切电源模式</p>
-<p>把它删掉的瞬间，系统就化身「失忆者」，重新开始学习你的使用规律。</p>
-<h2 id="二如何帮-mac-找回省电记忆">二、如何帮 Mac 找回「省电记忆」</h2>
-<p>很简单，删除CoreDuet数据库后，该怎么用就怎么用，让Mac适应你，而不是你去适应Mac，过了几天，macOS就会根据你的使用节奏，调整机器学习模型了。</p>
-<p>别反复删除数据库，新数据库 48 小时内会自己优化，手伸太长反而添乱。（亲测管用：我的 Mac 第二天下午就把充电逻辑恢复如初）</p>
-<h2 id="三机器学习教给我的事">三、机器学习教给我的事</h2>
-<p>这次小插曲让我看清：被我们吐槽的「系统 bug」，没准是 AI 在笨拙地学着做人。像 CoreDuet 数据库，记的不止使用习惯，更是机器想懂人类的努力。</p>
-        </div>
-        <a href="/posts/coreduet-discovery/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
-      </div>
-    </div>
-  </div>
-</article>
-
-          </div>
-        
       </section>
 
       
@@ -276,6 +284,12 @@
       
         <section class="w-100">
           <h1 class="f3">More</h1>
+          
+            <h2 class="f5 fw4 mb4 dib mr3">
+              <a href="/posts/coreduet-discovery/" class="link black dim">
+                Coreduet Discovery
+              </a>
+            </h2>
           
             <h2 class="f5 fw4 mb4 dib mr3">
               <a href="/posts/corespotlightd-issue/" class="link black dim">
