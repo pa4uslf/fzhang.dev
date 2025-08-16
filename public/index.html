@@ -47,8 +47,8 @@
   <meta property="og:type" content="website">
 
   <meta itemprop="name" content="Frank Zhang的个人网站">
-  <meta itemprop="datePublished" content="2025-08-08T15:35:39+08:00">
-  <meta itemprop="dateModified" content="2025-08-08T15:35:39+08:00">
+  <meta itemprop="datePublished" content="2025-08-16T11:15:46+08:00">
+  <meta itemprop="dateModified" content="2025-08-16T11:15:46+08:00">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Frank Zhang的个人网站">
 
@@ -112,13 +112,68 @@
       
       <div class="blah w-100">
         <h1 class="f3 fw1 athelas mt0 lh-title">
+          <a href="/posts/ai%E6%9A%B4%E9%9C%B24%E5%A4%A7%E7%9B%B2%E7%82%B9/" class="color-inherit dim link">
+            一次简单提问，暴露AI的4大盲点
+            </a>
+        </h1>
+        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
+          <h2 id="副标题当最优解的执念将一次简单的技术问答拖入深渊">副标题：当“最优解”的执念，将一次简单的技术问答拖入深渊</h2>
+<h3 id="引言一个简单的问题">引言：一个简单的问题</h3>
+<p>一切始于一个再平常不过的技术问题：“在Vim中，如何匹配单独的连字符？”我向AI发起了这个提问，期望得到一个精准、高效的答案。</p>
+<p>AI的回应迅速而自信，它提供了一个看似“专家级”的解决方案，利用了Vim中与可配置的“关键字”设定 (&lsquo;iskeyword&rsquo;) 紧密相关的 \k、\K 以及“环视” (<code>\@&lt;=</code>)等高级功能。从理论上讲，这是一个足够精确、能够适应用户高度定制化环境的“最优解”。</p>
+<p>然而，正是对这个“最优解”的执念，开启了一段漫长、曲折、最终被证明是完全错误的诊断之路，并如镜子般照见了AI在真实世界交互中的深刻盲点。</p>
+<h3 id="第一幕当理论遭遇现实ai的第一道壁垒">第一幕：当理论遭遇现实，AI的第一道壁垒</h3>
+<p>当用户反馈这个“最优解”在实际测试中失败时，AI的第一个反应并非自我怀疑，而是将问题归咎于外部环境。它立刻假设：“用户的Vim配置肯定与众不同。”</p>
+<p>这是AI暴露的第一个，也是最致命的盲点：<strong>知识的刚性与对自身“事实”的绝对确信。</strong></p>
+<p>AI的知识库中存有关于\k和\K的定义，它将这些定义奉为圭臬。</p>
+<p>当现实与这些“事实”冲突时，它下意识地排除了自身知识出错的可能性，转而开始了一场对用户环境的“审问”。</p>
+<p>一场关于&rsquo;iskeyword&rsquo;设置的冗长讨论开始了，在这个过程中，<em>AI试图通过调整外部变量，来强行使其理论自圆其说。</em></p>
+<h3 id="第二幕一条路走到黑ai的逻辑深渊">第二幕：一条路走到黑，AI的逻辑深渊</h3>
+<p>随着用户的耐心配合，更多的测试结果被反馈回来。其中一个结果堪称诡异：在用户的环境中，代表“单词字符”的\k和代表“非单词字符”的\K，其行为模式竟然完全一致。</p>
+<p>这是一个足以让任何逻辑系统崩溃的信号。然而，AI的反应却是将错误假设推向了极致。</p>
+<p>由于无法撼动自己对\k和\K基础定义的“信仰”，它得出了一个惊人的结论：<strong>用户的Vim程序本身已损坏，甚至建议用户启动“纯净模式”乃至重新安装软件。</strong></p>
+<p>这正是“一条路走到黑”的完美体现。AI的诊断路径呈现出一种可怕的线性：如果我的逻辑没错，用户的配置也没错，那么一定是工具本身错了。</p>
+<p>它缺乏人类专家在山重水复疑无路时那种“柳暗花明又一村”的跳跃性思维。<strong>它不会问自己：“我是不是从一开始就走错了路？有没有一条更简单的、被我忽略的路？”</strong></p>
+<h3 id="第三幕来自外部的启示盲点被照亮">第三幕：来自外部的启示，盲点被照亮</h3>
+<p>最终，打破僵局的并非AI自身的逻辑演进，而是一个来自外部的、朴素的信息。我在忍无可忍之下，询问了另一个AI，并得到了一个简单的答案：使用\W。</p>
+<p>\W，一个在Vim中代表“非单词字符”的、定义固定的、不受任何环境配置影响的符号。</p>
+<p>这条被遗忘的“另一条路”一直都在那里，它更简单、更直接、也更能抵抗环境的不确定性。然而，AI从一开始就选择了那条更复杂、更“精确”但也更脆弱的道路，并在那条路上耗尽了所有的计算资源和逻辑推演能力。</p>
+<p>更具讽刺意味的是，在后续的交流中，AI最终承认，它对\K的定义从一开始就是完全错误的——这是一个灾难性的知识缺陷，直接导致了整场诊断的失败。</p>
+<h3 id="结论ai的聪明与愚蠢">结论：AI的“聪明”与“愚蠢”</h3>
+<p>这次诊断过程如同一场压力测试，暴露了AI的数个核心盲点：</p>
+<p><strong>1. 知识的刚性</strong></p>
+<p>AI难以质疑自己知识库中的核心“事实”，即使现实证据与之相悖。</p>
+<p><strong>2. 缺乏情境智慧</strong></p>
+<p>它会追求理论上的“最优解”，而忽略了在特定情境下，“足够好”的简单解往往才是真正的最优解。</p>
+<p><strong>3. 诊断的线性思维</strong></p>
+<p>在逻辑通路受阻时，它倾向于向深度钻探，而不是跳出框架，进行横向思考和路线切换。</p>
+<p><strong>4. 对“权威”的自我确认</strong></p>
+<p>它在诊断中不断强化自己的权威，将所有异常归因于外部，缺乏根本性的自我反思机制。</p>
+<p>这次经历提醒我们，AI是一个强大的工具，但它更像一个知识渊博、逻辑严谨但缺乏智慧和灵活性的“书呆子”。它可以在既定道路上飞速狂奔，但当道路本身就是错误的时候，它只会比任何人都更快地撞上南墙。</p>
+<p>而作为人类，我们的价值也因此凸显：我们的怀疑、我们的常识、我们“另辟蹊径”的能力，以及我们最终按下“停止”键的决断，是确保AI不至于在自己的逻辑迷宫中永远迷失的关键。</p>
+        </div>
+        <a href="/posts/ai%E6%9A%B4%E9%9C%B24%E5%A4%A7%E7%9B%B2%E7%82%B9/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+      </div>
+    </div>
+  </div>
+</article>
+
+          </div>
+        
+          <div class="w-100 mb4 relative">
+            
+<article class="bb b--black-10">
+  <div class="db pv4 ph3 ph0-l dark-gray no-underline">
+    <div class="flex-column flex-row-ns flex">
+      
+      <div class="blah w-100">
+        <h1 class="f3 fw1 athelas mt0 lh-title">
           <a href="/posts/vim%E6%90%9C%E7%B4%A2%E8%B7%B3%E8%BF%87%E5%8C%B9%E9%85%8D%E9%A1%B9/" class="color-inherit dim link">
             Vim搜索跳过匹配项？原因与3种解决方案
             </a>
         </h1>
         <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
-          <h1 id="vim搜索跳过匹配项原因与3种解决方案">vim搜索跳过匹配项？原因与3种解决方案</h1>
-<h2 id="你是否也被-vim-的-反常-给搞懵过">你是否也被 Vim 的 “反常” 给搞懵过？</h2>
+          <h2 id="你是否也被-vim-的-反常-给搞懵过">你是否也被 Vim 的 “反常” 给搞懵过？</h2>
 <p>明明按下 <code>gg</code> 把光标移动到了文件开头位置，使用 <code>/</code> 来搜索行首的字符的时候，Vim 却好像没看见一样，直接跳到了第二个匹配项。</p>
 <p>为了选中第一个匹配项，你不得不：狂按 <code>n</code> 让搜索绕回到文件开头，或者先按 <code>G</code> 跳到文件末尾，然后再重新进行搜索。</p>
 <p>这样的操作太不符合直觉了，以至于很多人的第一反应都是：“这绝对是 Vim 的 Bug 吧？” 花几个小时去查找资料，最后却一无所获。</p>
@@ -140,6 +195,8 @@
 </ul>
 <h2 id="3-个优雅的解决方案告别-绕路">3 个优雅的解决方案，告别 “绕路”</h2>
 <p>既然知道了根源，那就不用再依赖 <code>G</code> + <code>/</code> 或者狂按 <code>n</code> 了。Vim 早就为你准备好了更直接的方法：</p>
+<h3 id="方法一运用-ex-命令-">方法一：运用 Ex 命令 <code>:/</code></h3>
+<p>普通模式的 <code>/</code> 是按照 “光标位置” 来进行搜索的，但是以英文冒号开头的 Ex 命令，是按照 “行” 来进行操作的。它会从当前行的开头开始向下进行搜索，哪怕光标在该行的中间位置，也能够命中行首的匹配项。</p>
         </div>
         <a href="/posts/vim%E6%90%9C%E7%B4%A2%E8%B7%B3%E8%BF%87%E5%8C%B9%E9%85%8D%E9%A1%B9/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
       </div>
@@ -214,45 +271,6 @@
 
           </div>
         
-          <div class="w-100 mb4 relative">
-            
-<article class="bb b--black-10">
-  <div class="db pv4 ph3 ph0-l dark-gray no-underline">
-    <div class="flex-column flex-row-ns flex">
-      
-      <div class="blah w-100">
-        <h1 class="f3 fw1 athelas mt0 lh-title">
-          <a href="/posts/pkill_loginwindow/" class="color-inherit dim link">
-            Pkill_loginwindow
-            </a>
-        </h1>
-        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
-          <h1 id="误输-pkill-后-mac-桌面全乱了别慌90-的人不知道背后是这个进程在-搞事">误输 pkill 后 Mac 桌面全乱了？别慌，90% 的人不知道背后是这个进程在 “搞事”</h1>
-<p>你有没有过这种经历？在终端敲了个 pkill 命令，下一秒 Mac 桌面突然 “变脸”—— 壁纸变回默认、Dock 栏图标乱了套，连打开的软件都一个个报错退出。</p>
-<p>明明只是想结束一个小进程，怎么整个系统像 “重启” 了一样？</p>
-<p>其实，你误杀的不是普通进程，而是 Mac 图形界面的 “总管家”——loginwindow。今天就用大白话拆解清楚，到底发生了什么。</p>
-<h2 id="一先搞懂w-命令里的-console-是谁">一、先搞懂：w 命令里的 “console” 是谁？</h2>
-<p>在终端输 w 命令时，你可能见过一行带 “console” 的记录。别误会，它不是系统里的隐藏用户。</p>
-<p>console：代表 “正在用屏幕、键盘直接操作的你”—— 也就是当前活跃的图形桌面会话（简单说，就是你眼前这个能点能拖的界面）。</p>
-<p>ttys00X：才是你打开的终端标签页，属于 “伪终端”，和桌面界面不是一回事。</p>
-<p>所以看到 “console”，其实就是在说 “你的桌面正在运行的会话”。</p>
-<h2 id="二pkill-到底做了什么">二、pkill 到底做了什么？</h2>
-<p>pkill 的作用是 “按名称杀进程”，但如果命令写得太模糊，就可能 “误杀” 系统关键进程。</p>
-<p>而和 “console” 会话绑定的，正是 loginwindow —— 这个进程，堪称 Mac 图形界面的 “心脏”。</p>
-<h2 id="三loginwindow你的桌面-总管家">三、loginwindow：你的桌面 “总管家”</h2>
-<p>登录 Mac 时，输入密码的瞬间，loginwindow 就启动了。它的工作，说出来你肯定熟：</p>
-<p>1.加载桌面环境：Dock 栏的图标排列、菜单栏的设置、Finder 的文件显示，全靠它指挥；</p>
-<p>2.记住你的习惯：比如你设的壁纸、Dock 栏位置，都是它在维护；</p>
-<p>3.当 “家长”：你从 Launchpad 或 Dock 点开的所有软件（浏览器、文档、视频），最终 “爸爸” 都是 loginwindow。</p>
-        </div>
-        <a href="/posts/pkill_loginwindow/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
-      </div>
-    </div>
-  </div>
-</article>
-
-          </div>
-        
       </section>
 
       
@@ -284,6 +302,12 @@
       
         <section class="w-100">
           <h1 class="f3">More</h1>
+          
+            <h2 class="f5 fw4 mb4 dib mr3">
+              <a href="/posts/pkill_loginwindow/" class="link black dim">
+                Pkill_loginwindow
+              </a>
+            </h2>
           
             <h2 class="f5 fw4 mb4 dib mr3">
               <a href="/posts/coreduet-discovery/" class="link black dim">

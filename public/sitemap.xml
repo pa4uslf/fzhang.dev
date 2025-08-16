@@ -3,10 +3,13 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://localhost:1313/</loc>
-    <lastmod>2025-08-08T15:35:39+08:00</lastmod>
+    <lastmod>2025-08-16T11:15:46+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/</loc>
-    <lastmod>2025-08-08T15:35:39+08:00</lastmod>
+    <lastmod>2025-08-16T11:15:46+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/ai%E6%9A%B4%E9%9C%B24%E5%A4%A7%E7%9B%B2%E7%82%B9/</loc>
+    <lastmod>2025-08-16T11:15:46+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/vim%E6%90%9C%E7%B4%A2%E8%B7%B3%E8%BF%87%E5%8C%B9%E9%85%8D%E9%A1%B9/</loc>
     <lastmod>2025-08-08T15:35:39+08:00</lastmod>
