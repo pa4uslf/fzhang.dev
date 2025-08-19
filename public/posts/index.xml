@@ -6,8 +6,15 @@
     <description>Recent content in Posts on Frank Zhang的个人网站</description>
     <generator>Hugo</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 16 Aug 2025 11:15:46 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 19 Aug 2025 12:09:45 +0800</lastBuildDate>
     <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>MBZUAI跳过基础教AI真的没问题吗</title>
+      <link>http://localhost:1313/posts/mbzuai%E8%B7%B3%E8%BF%87%E5%9F%BA%E7%A1%80%E6%95%99ai%E7%9C%9F%E7%9A%84%E6%B2%A1%E9%97%AE%E9%A2%98%E5%90%97/</link>
+      <pubDate>Tue, 19 Aug 2025 12:09:45 +0800</pubDate>
+      <guid>http://localhost:1313/posts/mbzuai%E8%B7%B3%E8%BF%87%E5%9F%BA%E7%A1%80%E6%95%99ai%E7%9C%9F%E7%9A%84%E6%B2%A1%E9%97%AE%E9%A2%98%E5%90%97/</guid>
+      <description>&lt;p&gt;你是否有过这样的经历？&lt;/p&gt;&#xA;&lt;p&gt;跟着教程做出了一个应用，感觉成就感满满。&lt;/p&gt;&#xA;&lt;p&gt;可一旦把应用发布到网上，使用者却寥寥无几。&lt;/p&gt;&#xA;&lt;p&gt;想优化，却又不知道从哪里开始。&lt;/p&gt;&#xA;&lt;p&gt;这也就是 MBZUAI “先实践后基础” 模式的甜蜜陷阱：&lt;strong&gt;快是快，不过容易变成 “AI 调包侠”&lt;/strong&gt;。&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;穆罕默德・本・扎耶德人工智能大学（MBZUAI）位于阿联酋阿布扎比，2019 年由阿联酋政府成立，是全球第一所专注研究生培养的研究型人工智能大学。该校提供计算机科学、计算机视觉等 5 个专业的硕士和博士课程，师资雄厚，汇聚众多国际权威学者。学校科研实力强劲，发表众多顶会论文，还自行训练开发 65B 规模大模型。在 CS Rankings 排名中，其人工智能综合排名全球第 15 名，自然语言处理专业全球第 11 名。MBZUAI 为学生提供全额奖学金等福利，毕业生多进入顶尖企业，就业前景良好，阿联酋还会为其颁发 10 年黄金签证吸引人才留居。&lt;/p&gt;&lt;/blockquote&gt;&#xA;&lt;h2 id=&#34;不是-先有鸡还是先有蛋而是-基础有-3-层&#34;&gt;不是 “先有鸡还是先有蛋”，而是 “基础有 3 层”&lt;/h2&gt;&#xA;&lt;p&gt;有人可能会说：“学 AI 像学摄影，先拿手机拍再说”，这个类比其实遗漏了关键：学好摄影的确能够拍出好看的照片，但要是想当大厨，光会按菜谱做番茄炒蛋可不够 —— 得懂火候以及食材的化学反应。&lt;/p&gt;&#xA;&lt;p&gt;AI 的 “基础” 同样如此，不是扁平的 “公式” 或者 “工具”，而是&lt;strong&gt;3 层立体结构&lt;/strong&gt;：&lt;/p&gt;&#xA;&lt;h3 id=&#34;1-工具性基础能上手但别停在这&#34;&gt;1. 工具性基础：能上手，但别停在这&lt;/h3&gt;&#xA;&lt;p&gt;这是最表层的 “基础”，比如：&lt;/p&gt;&#xA;&lt;p&gt;（1）调用 Hugging Face 模型的代码该怎么写&lt;/p&gt;&#xA;&lt;p&gt;（2）numpy 矩阵运算的基本指令&lt;/p&gt;&#xA;&lt;p&gt;（3）git 开展代码管理工作的几个常用命令&lt;/p&gt;&#xA;&lt;p&gt;就如同 “1 + 1 = 2”，学了就能用，能够快速获得 “我会用 AI” 的成就感。&lt;/p&gt;&#xA;&lt;p&gt;MBZUAI 运用这种方式拉新入门，没什么问题。但要是只停在这，那就永远解决不了 “模型为什么错” 的问题。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>一次简单提问，暴露AI的4大盲点</title>
       <link>http://localhost:1313/posts/ai%E6%9A%B4%E9%9C%B24%E5%A4%A7%E7%9B%B2%E7%82%B9/</link>
