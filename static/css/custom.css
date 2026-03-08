@@ -61,7 +61,7 @@ body {
 }
 
 .home-shell {
-  padding-bottom: 4rem;
+  padding-bottom: 3rem;
 }
 
 .home-intro {
@@ -235,6 +235,7 @@ body {
   height: auto;
   display: block;
   border-radius: 0.65rem;
+  filter: grayscale(1) contrast(1.22) brightness(0.92);
 }
 
 .contact-qrcode--about {
@@ -343,4 +344,9 @@ body {
   .contact-qrcode img {
     width: 148px;
   }
+}
+
+
+.about-contact .contact-qrcode img {
+  width: 196px;
 }
