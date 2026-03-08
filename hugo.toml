@@ -29,6 +29,11 @@ toLower = true
   pattern = '2006'
 
 [menu]
+
+  [[menu.main]]
+  name = '起步'
+  pageRef = '/start-here'
+  weight = 5
   [[menu.main]]
   name = '文章'
   pageRef = '/posts'
@@ -48,6 +53,7 @@ show_reading_time = true
 background_color_class = 'bg-dark-gray'
 custom_css = ['css/custom.css']
 date_format = '2006-01-02'
+favicon = 'favicon.svg'
 
 [params.ananke]
 show_recent_posts = true

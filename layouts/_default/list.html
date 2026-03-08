@@ -1,0 +1,52 @@
+{{ define "main" }}
+  <article class="pa3 pa4-ns mw8 center">
+    <section class="measure-wide lh-copy nested-links {{ $.Param "text_color" | compare.Default "mid-gray" }}">
+      {{- .Content -}}
+    </section>
+
+    {{ if eq .Section "posts" }}
+      {{ with site.Data.reading.routes }}
+        <section class="mt5" aria-labelledby="reading-routes-title">
+          <div class="flex items-center justify-between flex-wrap mb3">
+            <h2 id="reading-routes-title" class="f2 mv0">推荐阅读路线</h2>
+            <a href="{{ "/start-here/" | relURL }}" class="link blue dim fw6">查看完整起步页 →</a>
+          </div>
+
+          <div class="taxonomy-grid">
+            {{ range . }}
+              <div class="taxonomy-card">
+                <h3 class="f4 mt0 mb2 near-black">{{ .title }}</h3>
+                <p class="mid-gray lh-copy mt0">{{ .description }}</p>
+                <div class="mt3">
+                  {{ range .links }}
+                    {{ with site.GetPage . }}
+                      <a href="{{ .RelPermalink }}" class="db link dark-gray dim mb2">
+                        <span class="fw6">{{ .Title }}</span>
+                      </a>
+                    {{ end }}
+                  {{ end }}
+                </div>
+              </div>
+            {{ end }}
+          </div>
+        </section>
+      {{ end }}
+    {{ end }}
+
+    <section class="mt5">
+      <div class="flex items-center justify-between flex-wrap mb3">
+        <h2 class="f2 mv0">全部文章</h2>
+        <p class="mid-gray mv2">共 {{ len .Paginator.Pages }} 篇</p>
+      </div>
+    </section>
+
+    <section class="flex-ns flex-wrap justify-around">
+      {{ range .Paginator.Pages }}
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          {{ .Render "summary" }}
+        </div>
+      {{ end }}
+    </section>
+    {{- template "_internal/pagination.html" . -}}
+  </article>
+{{ end }}
