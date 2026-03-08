@@ -1,21 +1,21 @@
-{{/* 联系方式卡片改为语义化结构，样式统一走 custom.css。 */}}
 <aside class="lead-magnet-box" aria-labelledby="contact-card-title">
   <h2 id="contact-card-title" class="f3 mv0">{{ .title | default "与我联系" }}</h2>
   <p class="lead-magnet-copy">{{ .description | default "期待与你交流，共同成长。" }}</p>
 
   <div class="contact-info">
-    {{ with .wechat }}
-      <p><strong>微信号：</strong>{{ . }}</p>
-    {{ end }}
+    <div class="contact-meta">
+      {{ with .wechat }}
+        <p><strong>微信号：</strong>{{ . }}</p>
+      {{ end }}
 
-    {{ with .email }}
-      <p><strong>邮箱：</strong><a href="mailto:{{ . }}">{{ . }}</a></p>
-    {{ end }}
+      {{ with .email }}
+        <p><strong>邮箱：</strong><a href="mailto:{{ . }}">{{ . }}</a></p>
+      {{ end }}
+    </div>
 
     {{ with .qrcode }}
       <figure class="contact-qrcode">
         <img src="{{ . | relURL }}" alt="Frank Zhang 的微信二维码">
-        <figcaption>扫码添加微信</figcaption>
       </figure>
     {{ end }}
   </div>

@@ -1,6 +1,5 @@
 +++
 title = 'Frank Zhang 的技术与思考'
-description = '写 macOS、Vim、AI 与学习方法的实践与思考'
 +++
 
 你好，我是 Frank Zhang。

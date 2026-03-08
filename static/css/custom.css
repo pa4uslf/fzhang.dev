@@ -19,7 +19,7 @@ body {
 }
 
 .home-header-shell {
-  padding-bottom: 6rem;
+  padding-bottom: 6.8rem;
   background: linear-gradient(180deg, #2f2f32 0%, #343437 100%);
 }
 
@@ -33,7 +33,7 @@ body {
 }
 
 .home-hero {
-  padding: 6rem 1rem 5.5rem;
+  padding: 6.6rem 1rem 6rem;
 }
 
 .home-hero-inner {
@@ -204,8 +204,7 @@ body {
 }
 
 .lead-magnet-copy,
-.contact-info p,
-.contact-qrcode figcaption {
+.contact-info p {
   color: var(--muted);
 }
 
@@ -218,25 +217,28 @@ body {
   margin-top: 1rem;
 }
 
+.contact-meta {
+  display: grid;
+  gap: 0.35rem;
+}
+
 .contact-qrcode {
   margin: 0;
+  padding: 0.7rem;
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  background: #fffdfa;
 }
 
-.contact-qrcode img,
-.about-qrcode img {
-  width: 112px;
-  height: 112px;
-  border-radius: 0.85rem;
+.contact-qrcode img {
+  width: 168px;
+  height: auto;
+  display: block;
+  border-radius: 0.65rem;
 }
 
-.about-qrcode {
+.contact-qrcode--about {
   margin: 1rem 0 0;
-}
-
-.about-qrcode figcaption {
-  margin-top: 0.45rem;
-  color: var(--muted);
-  font-size: 0.92rem;
 }
 
 .taxonomy-grid,
@@ -336,5 +338,9 @@ body {
 
   .contact-info {
     align-items: start;
+  }
+
+  .contact-qrcode img {
+    width: 148px;
   }
 }
