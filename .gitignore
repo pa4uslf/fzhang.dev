@@ -4,3 +4,6 @@ excalidraw.log
 .hugo_build.lock
 resources/_gen/
 .claude/
+
+# Hugo build output
+public/

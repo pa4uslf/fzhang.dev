@@ -1,45 +1,59 @@
+{{ define "title" }}{{ .Site.Title }}{{ end }}
+
 {{ define "main" }}
-  <article class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy nested-links {{ $.Param "text_color" | compare.Default "mid-gray" }}">
-    {{ .Content }}
-  </article>
+  {{/*
+    首页结构做了三件事：
+    1. 显式使用 posts 作为主内容区，避免依赖主题默认值。
+    2. 把首页正文、主题导航、最近文章拆开，提升可读性。
+    3. 联系方式改为读取 data 文件，后续改邮箱或二维码不需要再改模板。
+  */}}
 
-  {{ $mainSections := site.Params.mainSections | compare.Default (collections.Slice "post") }}
-  {{ $show_recent_posts := site.Params.ananke.show_recent_posts }}
-  {{ $section := collections.Where $.Site.RegularPages "Section" "in" $mainSections }}
-  {{ $section_count := len $section }}
+  {{ $mainSections := site.Params.mainSections | compare.Default (collections.Slice "posts") }}
+  {{ $recentPages := collections.Where site.RegularPages.ByDate.Reverse "Section" "in" $mainSections }}
+  {{ $recentCount := $.Param "recent_posts_number" | compare.Default 4 }}
 
-  {{ if and ($show_recent_posts) (compare.Ge $section_count 1) }}
-    <div class="pa3 pa4-ns w-100 w-70-ns center">
-      {{ $n_posts := $.Param "recent_posts_number" | compare.Default 3 }}
+  {{ with .Content }}
+    <article class="home-intro cf ph3 ph5-l pv3 pv4-l f4 center measure-wide lh-copy nested-links {{ $.Param "text_color" | compare.Default "mid-gray" }}">
+      {{ . }}
+    </article>
+  {{ end }}
 
-      {{/* “最近文章”部分 */}}
-      <section class="w-100 mw8">
-        {{ range (collections.First $n_posts $section) }}
+  {{ partial "home-focus.html" . }}
+
+  {{ if gt (len $recentPages) 0 }}
+    <section class="pa3 pa4-ns w-100 w-70-ns center" aria-labelledby="recent-posts-title">
+      <div class="flex items-center justify-between flex-wrap mb3">
+        <h2 id="recent-posts-title" class="f2 near-black mv0">最近更新</h2>
+        <a href="{{ "/posts/" | relURL }}" class="link blue dim fw6">查看全部文章 →</a>
+      </div>
+
+      <div class="w-100 mw8">
+        {{ range collections.First $recentCount $recentPages }}
           <div class="w-100 mb4 relative">
             {{ .Render "summary-with-image" }}
           </div>
         {{ end }}
-      </section>
-
-      {{/* 关键修复：把引流框移到这里，确保它总能显示 */}}
-      <div class="w-100 mt4 center tc">
-        {{ $params := dict "email" "pa4uslf@qq.com" "qrcode" "/images/wechat-qrcode.jpg" }}
-        {{ partial "lead-magnet.html" $params }}
       </div>
 
-      {{/* “更多文章”部分 (现在引流框已经不在这里了) */}}
-      {{ if compare.Ge $section_count (math.Add $n_posts 1) }}
-        <section class="w-100">
-          <h1 class="f3">{{ lang.Translate "more" }}</h1>
-          {{ range (collections.First 4 (collections.After $n_posts $section))  }}
-            <h2 class="f5 fw4 mb4 dib {{ compare.Conditional (compare.Eq $.Site.Language.LanguageDirection "rtl") "ml3" "mr3" }}">
-              <a href="{{ .RelPermalink }}" class="link black dim">
-                {{ .Title }}
+      <div class="w-100 mt4 center tc">
+        {{ partial "lead-magnet.html" site.Data.contact }}
+      </div>
+
+      {{ if gt (len $recentPages) $recentCount }}
+        <section class="w-100 mt5" aria-labelledby="more-posts-title">
+          <h2 id="more-posts-title" class="f3">更多文章</h2>
+          <div class="home-more-posts">
+            {{ range collections.First 4 (collections.After $recentCount $recentPages) }}
+              <a href="{{ .RelPermalink }}" class="home-more-post link black dim">
+                <span class="db f5 fw6">{{ .Title }}</span>
+                {{ with .Params.summary }}
+                  <span class="db f6 mid-gray mt1">{{ . }}</span>
+                {{ end }}
               </a>
-            </h2>
-          {{ end }}
+            {{ end }}
+          </div>
         </section>
       {{ end }}
-    </div>
+    </section>
   {{ end }}
 {{ end }}

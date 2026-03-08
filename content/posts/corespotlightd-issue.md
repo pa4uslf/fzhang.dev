@@ -1,7 +1,11 @@
 +++
 date = '2025-07-30T15:17:08+08:00'
 draft = false
-title = 'Corespotlightd Issue'
+title = 'corespotlightd 占用过高、Mac 发热严重？一次完整排查记录'
+description = '记录一次 corespotlightd 持续高占用、MacBook 发热严重的问题排查过程，以及如何把原因缩小到 Spotlight 与 CoreDuet 的交互。'
+summary = '如果你的 MacBook 持续发热、corespotlightd 长时间占用过高，这篇文章提供了一条更贴近实战的诊断路径，而不是只给结论。'
+categories = ['macOS']
+tags = ['macOS', 'Spotlight', 'corespotlightd', '故障排查']
 +++
 
 ## 背景信息

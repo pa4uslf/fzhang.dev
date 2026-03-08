@@ -1,0 +1,53 @@
+intro = '围绕“技术实践 + 方法思考”持续输出，让网站不仅是文章列表，也是可被搜索、引用和回访的个人知识入口。'
+
+[[focus_areas]]
+title = 'macOS 与系统排障'
+description = '记录真实踩坑、诊断过程和最终修复方法，优先写可复现、可验证的一手经验。'
+url = '/posts/coreduet-discovery/'
+
+[[focus_areas]]
+title = 'Vim 与效率工具'
+description = '把看似零碎的编辑器问题拆成可理解的原理，避免只记命令、不懂机制。'
+url = '/posts/vim%E6%90%9C%E7%B4%A2%E8%B7%B3%E8%BF%87%E5%8C%B9%E9%85%8D%E9%A1%B9/'
+
+[[focus_areas]]
+title = 'AI 工具与认知反思'
+description = '既关注 AI 带来的效率，也反思使用 AI 时容易被忽略的思维盲点。'
+url = '/posts/ai%E6%9A%B4%E9%9C%B24%E5%A4%A7%E7%9B%B2%E7%82%B9/'
+
+[[focus_areas]]
+title = '学习方法与长期成长'
+description = '把个人复盘、认知变化和长期训练方法沉淀下来，形成可复用的方法论。'
+url = '/posts/%E9%98%B6%E6%AE%B5%E5%A4%8D%E7%9B%98%E7%9A%84%E5%A4%8D%E7%9B%98/'
+
+[[audiences]]
+title = '适合正在解决真实问题的人'
+description = '如果你更在意“怎么定位问题、怎么验证方案”，而不是只想抄结论，这里的内容会更适合你。'
+
+[[audiences]]
+title = '适合想建立长期方法论的人'
+description = '除了技术问题，我也会写学习系统、复盘习惯和 AI 时代的认知升级。'
+
+[[principles]]
+title = '先讲结论，再讲过程'
+description = '让读者先获得可执行答案，再决定要不要继续深挖原理。'
+
+[[principles]]
+title = '优先写一手经验'
+description = '尽量记录亲自踩过的坑、亲手验证过的诊断过程和实际结果。'
+
+[[principles]]
+title = '文章之间要能互相指路'
+description = '让单篇文章不再孤立存在，慢慢形成能被回访的知识网络。'
+
+[[quick_links]]
+label = '查看所有文章'
+url = '/posts/'
+
+[[quick_links]]
+label = '了解我是谁'
+url = '/about/'
+
+[[quick_links]]
+label = '订阅 RSS'
+url = '/index.xml'

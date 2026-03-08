@@ -1,0 +1,28 @@
+{{ define "main" }}
+  <article class="pa3 pa4-ns mw8 center">
+    <section class="measure-wide lh-copy nested-links {{ $.Param "text_color" | compare.Default "mid-gray" }}">
+      {{- .Content -}}
+    </section>
+
+    <section class="mt5" aria-labelledby="terms-title">
+      <div class="flex items-center justify-between flex-wrap mb3">
+        <h2 id="terms-title" class="f2 mv0">{{ .Title }}</h2>
+        <p class="mid-gray mv2">共 {{ len .Data.Pages }} 个主题</p>
+      </div>
+
+      <div class="taxonomy-grid">
+        {{ range .Data.Pages.ByTitle }}
+          <a href="{{ .RelPermalink }}" class="taxonomy-card link dark-gray dim">
+            <span class="db f4 fw6">{{ .LinkTitle }}</span>
+            {{ with .Params.description }}
+              <span class="db f6 mid-gray mt2">{{ . }}</span>
+            {{ else }}
+              <span class="db f6 mid-gray mt2">{{ .Pages.Len }} 篇文章</span>
+            {{ end }}
+            <span class="db blue fw6 mt3">查看这个主题 →</span>
+          </a>
+        {{ end }}
+      </div>
+    </section>
+  </article>
+{{ end }}

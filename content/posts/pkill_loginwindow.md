@@ -1,10 +1,12 @@
 +++
 date = '2025-07-31T14:55:57+08:00'
 draft = false
-title = 'Pkill_loginwindow'
+title = '误输 pkill 后 Mac 桌面全乱了？真正被你误杀的是 loginwindow'
+description = '为什么误输一个 pkill 命令，会让壁纸、Dock 和应用同时异常？这篇文章用通俗方式解释 loginwindow 的作用。'
+summary = '如果你曾在终端误杀进程后把桌面搞乱，这篇文章会解释 loginwindow 为什么像 macOS 图形界面的“总管家”，以及怎样更安全地结束进程。'
+categories = ['macOS']
+tags = ['macOS', 'pkill', 'loginwindow', '终端']
 +++
-
-# 误输 pkill 后 Mac 桌面全乱了？别慌，90% 的人不知道背后是这个进程在 “搞事”
 
 你有没有过这种经历？在终端敲了个 pkill 命令，下一秒 Mac 桌面突然 “变脸”—— 壁纸变回默认、Dock 栏图标乱了套，连打开的软件都一个个报错退出。
 
@@ -72,6 +74,6 @@ loginwindow 一死，管理壁纸、Dock 的进程（Dock.app、Finder.app）也
 
 2.不确定的进程，先用 “活动监视器” 可视化查看，右键 “强制退出” 更安全；
 
-3.非要用终端杀进程，先输 ps aux | grep “进程名” 找到 PID，再用 kill <PID>精准操作。
+3.非要用终端杀进程，先输 `ps aux | grep "进程名"` 找到 PID，再用 `kill <PID>` 精准操作。
 
 互动时间：想知道更多macOS使用技巧？欢迎把网站加入书签（Ctrl/cmd+D）

@@ -2,3 +2,64 @@ baseURL = 'https://fzhang.dev/'
 languageCode = 'zh-cn'
 title = 'Frank Zhang的个人网站'
 theme = 'ananke'
+
+# 让分类、标签、相关文章和菜单显式可见，减少对主题默认行为的依赖。
+summaryLength = 120
+enableRobotsTXT = true
+
+[taxonomies]
+category = 'categories'
+tag = 'tags'
+
+[related]
+includeNewer = true
+threshold = 70
+toLower = true
+  [[related.indices]]
+  name = 'tags'
+  weight = 100
+
+  [[related.indices]]
+  name = 'categories'
+  weight = 80
+
+  [[related.indices]]
+  name = 'date'
+  weight = 10
+  pattern = '2006'
+
+[menu]
+  [[menu.main]]
+  name = '文章'
+  pageRef = '/posts'
+  weight = 10
+
+  [[menu.main]]
+  name = '关于'
+  pageRef = '/about'
+  weight = 20
+
+[params]
+description = 'Frank Zhang 的个人网站，分享 macOS、Vim、AI 与学习方法的一手实践与思考。'
+author = 'Frank Zhang'
+mainSections = ['posts']
+recent_posts_number = 4
+show_reading_time = true
+background_color_class = 'bg-dark-gray'
+custom_css = ['css/custom.css']
+date_format = '2006-01-02'
+
+[params.ananke]
+show_recent_posts = true
+
+[params.ananke.social.follow]
+networks = ['email', 'rss']
+new_window_icon = false
+
+[params.ananke.social.email]
+label = '邮箱'
+profilelink = 'mailto:pa4uslf@qq.com'
+
+[params.ananke.social.rss]
+label = 'RSS'
+profilelink = '/index.xml'

@@ -1,7 +1,11 @@
 +++
 date = '2025-07-30T15:17:57+08:00'
 draft = false
-title = 'Coreduet Discovery'
+title = '删掉 CoreDuet 后，Mac 为什么突然不会省电了？'
+description = '一次删除 CoreDuet 数据库后的真实观察：为什么 Mac 会暂时“忘记”省电习惯，以及该如何正确等待它恢复。'
+summary = '文章结合亲身经历解释了 CoreDuet 数据库在 macOS 中的作用，以及删库后系统为何会短暂出现充电与省电逻辑异常。'
+categories = ['macOS']
+tags = ['macOS', 'CoreDuet', '省电', '系统机制']
 +++
 
 清晨醒来去摸电脑的那一刻，整个人愣住——

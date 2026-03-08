@@ -1,0 +1,45 @@
+{{/*
+  正文底部区域承担“站内导流”职责：
+  - 上一篇/下一篇让读者不断档；
+  - 相关文章把单篇文章变成网络；
+  - CTA 强化个人 IP 入口。
+*/}}
+
+{{ $related := .Site.RegularPages.Related . | collections.First 3 }}
+<section class="post-endnotes mt5 pt4 bt b--black-10 not-serif" aria-labelledby="post-endnotes-title">
+  <h2 id="post-endnotes-title" class="f3 mt0">读到这里，可以继续看这些</h2>
+
+  <div class="post-nav-grid mt3">
+    {{ with .PrevInSection }}
+      <a href="{{ .RelPermalink }}" class="post-nav-card link dark-gray dim">
+        <span class="db f7 tracked ttu mid-gray">上一篇</span>
+        <span class="db f5 fw6 mt2">{{ .Title }}</span>
+      </a>
+    {{ end }}
+
+    {{ with .NextInSection }}
+      <a href="{{ .RelPermalink }}" class="post-nav-card link dark-gray dim">
+        <span class="db f7 tracked ttu mid-gray">下一篇</span>
+        <span class="db f5 fw6 mt2">{{ .Title }}</span>
+      </a>
+    {{ end }}
+  </div>
+
+  {{ with $related }}
+    <div class="post-related-grid mt4">
+      {{ range . }}
+        <a href="{{ .RelPermalink }}" class="post-related-card link dark-gray dim">
+          <span class="db f5 fw6">{{ .Title }}</span>
+          {{ with .Params.summary }}
+            <span class="db f6 mid-gray mt2">{{ . }}</span>
+          {{ end }}
+        </a>
+      {{ end }}
+    </div>
+  {{ end }}
+
+  <div class="post-cta mt4 pa3 br3 bg-near-white">
+    <p class="f5 fw6 mv0">如果你喜欢这种“先结论、再原理、最后串联相关文章”的写法</p>
+    <p class="lh-copy mid-gray mt2 mb0">可以去 <a href="{{ "/about/" | relURL }}">关于页</a> 看看我长期会写什么，也可以直接通过首页邮箱和我交流。</p>
+  </div>
+</section>

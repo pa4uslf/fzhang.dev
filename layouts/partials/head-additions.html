@@ -1,0 +1,29 @@
+{{/*
+  补一层轻量的结构化数据：
+  - 首页输出 WebSite，帮助搜索引擎和 AI 更快理解站点定位。
+  - 关于页输出 Person，明确作者身份。
+*/}}
+
+{{ if .IsHome }}
+  {{ $website := dict
+    "@context" "https://schema.org"
+    "@type" "WebSite"
+    "name" site.Title
+    "url" site.Home.Permalink
+    "description" site.Params.description
+    "inLanguage" site.Language.LanguageCode
+  }}
+  <script type="application/ld+json">{{ $website | jsonify | safeJS }}</script>
+{{ end }}
+
+{{ if eq .Section "about" }}
+  {{ $person := dict
+    "@context" "https://schema.org"
+    "@type" "Person"
+    "name" (site.Params.author | compare.Default site.Title)
+    "url" site.Home.Permalink
+    "description" site.Params.description
+    "email" "mailto:pa4uslf@qq.com"
+  }}
+  <script type="application/ld+json">{{ $person | jsonify | safeJS }}</script>
+{{ end }}

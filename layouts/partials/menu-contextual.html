@@ -1,0 +1,40 @@
+{{/*
+  文章右侧栏承担三件事：
+  1. 长文目录，降低阅读跳出。
+  2. 相关文章，帮助形成知识网络。
+  3. 轻量 CTA，把读者导向 about 或订阅。
+*/}}
+
+{{ $showToc := or .Params.toc (gt .WordCount 1200) }}
+{{ if and $showToc .TableOfContents }}
+  <div class="bg-light-gray pa3 mb3 nested-list-reset nested-copy-line-height nested-links post-side-card">
+    <p class="f5 b mb3">本文导航</p>
+    {{ .TableOfContents }}
+  </div>
+{{ end }}
+
+{{ $related := .Site.RegularPages.Related . | collections.First 6 }}
+{{ with $related }}
+  <div class="bg-light-gray pa3 mb3 nested-list-reset nested-copy-line-height nested-links post-side-card">
+    <p class="f5 b mb3">继续阅读</p>
+    <ul class="pa0 list">
+      {{ range . }}
+        <li class="mb3">
+          <a href="{{ .RelPermalink }}" class="link dark-gray dim fw6 db">{{ .Title }}</a>
+          {{ with .Params.summary }}
+            <span class="db f6 mid-gray mt1">{{ . }}</span>
+          {{ end }}
+        </li>
+      {{ end }}
+    </ul>
+  </div>
+{{ end }}
+
+<div class="bg-light-gray pa3 nested-copy-line-height post-side-card">
+  <p class="f5 b mb2">想继续了解我？</p>
+  <p class="f6 lh-copy mid-gray mt0">如果你想知道这个网站会长期写什么，可以先看关于页；如果你想第一时间看到更新，可以直接订阅 RSS。</p>
+  <div class="post-side-actions">
+    <a href="{{ "/about/" | relURL }}" class="post-side-action link dim">关于我</a>
+    <a href="{{ "/index.xml" | relURL }}" class="post-side-action link dim">订阅 RSS</a>
+  </div>
+</div>
