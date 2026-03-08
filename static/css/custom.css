@@ -19,7 +19,7 @@ body {
 }
 
 .home-header-shell {
-  padding-bottom: 5.25rem;
+  padding-bottom: 6rem;
   background: linear-gradient(180deg, #2f2f32 0%, #343437 100%);
 }
 
@@ -33,7 +33,7 @@ body {
 }
 
 .home-hero {
-  padding: 5.5rem 1rem 4.5rem;
+  padding: 6rem 1rem 5.5rem;
 }
 
 .home-hero-inner {
@@ -54,7 +54,7 @@ body {
 
 .home-hero-copy {
   max-width: 38rem;
-  margin: 2rem auto 0;
+  margin: 2.4rem auto 0;
   font-size: 1.08rem;
   line-height: 1.9;
   text-align: center;
@@ -168,20 +168,32 @@ body {
   background: transparent;
 }
 
-.home-post-card .db {
+.home-post-card .db,
+.home-post-card .pa4,
+.home-post-card .pv4 {
   background: transparent;
 }
 
 .home-post-card h3,
 .home-post-card p,
-.home-post-card .f6 {
+.home-post-card .f6,
+.home-post-card .f7 {
   color: var(--ink);
 }
 
-.home-post-card .f6.mid-gray,
-.home-post-card p,
+.home-post-card .mid-gray,
+.home-post-card .silver,
 .home-post-card .nested-links p {
   color: var(--muted) !important;
+}
+
+.summary-link {
+  color: var(--ink);
+  border-bottom: 1px solid var(--line);
+}
+
+.post-card-image-link img {
+  object-fit: cover;
 }
 
 .lead-magnet-box {
@@ -210,10 +222,21 @@ body {
   margin: 0;
 }
 
-.contact-qrcode img {
+.contact-qrcode img,
+.about-qrcode img {
   width: 112px;
   height: 112px;
   border-radius: 0.85rem;
+}
+
+.about-qrcode {
+  margin: 1rem 0 0;
+}
+
+.about-qrcode figcaption {
+  margin-top: 0.45rem;
+  color: var(--muted);
+  font-size: 0.92rem;
 }
 
 .taxonomy-grid,
@@ -286,7 +309,7 @@ body {
 
 @media (max-width: 30em) {
   .home-hero {
-    padding: 3.3rem 1rem 2.7rem;
+    padding: 3.6rem 1rem 3rem;
   }
 
   .home-hero-title {
@@ -297,7 +320,7 @@ body {
   .home-hero-copy {
     margin-left: 0;
     margin-right: 0;
-    margin-top: 1.5rem;
+    margin-top: 1.8rem;
     text-align: left;
     font-size: 0.98rem;
   }
