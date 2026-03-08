@@ -19,11 +19,3 @@ url = '/posts/ai%E6%9A%B4%E9%9C%B24%E5%A4%A7%E7%9B%B2%E7%82%B9/'
 title = '学习方法与长期成长'
 description = '把个人复盘、认知变化和长期训练方法沉淀下来，形成可复用的方法论。'
 url = '/posts/%E9%98%B6%E6%AE%B5%E5%A4%8D%E7%9B%98%E7%9A%84%E5%A4%8D%E7%9B%98/'
-
-[[quick_links]]
-label = '关于我'
-url = '/about/'
-
-[[quick_links]]
-label = '订阅更新'
-url = '/subscribe/'

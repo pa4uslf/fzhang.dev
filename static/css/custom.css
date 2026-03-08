@@ -19,39 +19,46 @@ body {
 }
 
 .home-header-shell {
-  padding-bottom: 2.5rem;
-  background: linear-gradient(180deg, #2f2f32 0%, #333335 100%);
+  padding-bottom: 4rem;
+  background: linear-gradient(180deg, #2f2f32 0%, #343437 100%);
 }
 
 .home-header-shell--compact {
   padding-bottom: 0.35rem;
 }
 
+.home-brand-mark {
+  font-family: "Avenir Next", Avenir, "Helvetica Neue", sans-serif;
+  letter-spacing: -0.02em;
+}
+
 .home-hero {
-  padding: 1.75rem 1rem 0;
+  padding: 4.4rem 1rem 3.2rem;
 }
 
 .home-hero-inner {
-  max-width: 70rem;
+  max-width: 72rem;
+  padding: 0 1rem;
 }
 
 .home-hero-title {
   margin: 0;
-  color: rgba(255, 255, 255, 0.92);
-  font-family: "Avenir Next", Avenir, "Helvetica Neue", sans-serif;
-  font-size: clamp(2.8rem, 6vw, 4.8rem);
-  font-weight: 300;
-  line-height: 1.04;
-  letter-spacing: -0.035em;
+  color: rgba(255, 255, 255, 0.94) !important;
+  font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
+  font-size: clamp(3rem, 6.2vw, 5.1rem);
+  font-weight: 600;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
   text-align: center;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.16);
 }
 
 .home-hero-copy {
-  max-width: 34rem;
-  margin: 1rem auto 0;
-  color: rgba(255, 255, 255, 0.64);
-  font-size: 1.05rem;
-  line-height: 1.8;
+  max-width: 38rem;
+  margin: 1.3rem auto 0;
+  color: rgba(255, 255, 255, 0.76) !important;
+  font-size: 1.08rem;
+  line-height: 1.9;
   text-align: center;
 }
 
@@ -60,8 +67,8 @@ body {
 }
 
 .home-intro {
-  margin-top: 3.2rem;
-  padding-bottom: 0.5rem;
+  margin-top: 4rem;
+  padding-bottom: 0.75rem;
   text-align: left;
 }
 
@@ -69,7 +76,7 @@ body {
   margin-top: 0;
   margin-bottom: 1.25rem;
   font-size: 1.12rem;
-  line-height: 1.9;
+  line-height: 1.95;
 }
 
 .home-intro p:first-child {
@@ -79,7 +86,7 @@ body {
 
 .home-focus,
 .home-stream {
-  margin-top: 2.75rem;
+  margin-top: 3.25rem;
 }
 
 .home-section-heading {
@@ -153,30 +160,6 @@ body {
 .home-focus-card p {
   color: var(--muted);
   line-height: 1.75;
-}
-
-.home-quick-links {
-  display: flex;
-  gap: 0.85rem;
-  margin-top: 1.75rem;
-  flex-wrap: wrap;
-}
-
-.home-quick-link,
-.post-side-action {
-  display: inline-flex;
-  align-items: center;
-  padding: 0.72rem 1rem;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  background: transparent;
-  color: var(--ink);
-  font-weight: 600;
-}
-
-.home-quick-link:hover,
-.post-side-action:hover {
-  background: #fffdf9;
 }
 
 .home-post-card {
@@ -276,6 +259,10 @@ body {
   margin-top: 1.6rem;
 }
 
+.about-contact {
+  margin-top: 3rem;
+}
+
 .post-side-card + .post-side-card {
   margin-top: 1rem;
 }
@@ -301,11 +288,11 @@ body {
 
 @media (max-width: 30em) {
   .home-hero {
-    padding-top: 0.75rem;
+    padding: 2.8rem 1rem 2.2rem;
   }
 
   .home-hero-title {
-    font-size: 2.4rem;
+    font-size: 2.45rem;
     text-align: left;
   }
 
@@ -317,7 +304,7 @@ body {
   }
 
   .home-intro {
-    margin-top: 2.1rem;
+    margin-top: 2.4rem;
   }
 
   .home-intro p {

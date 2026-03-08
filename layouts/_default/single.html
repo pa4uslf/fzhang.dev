@@ -6,6 +6,7 @@
   {{ $page := . }}
   {{ $section := .Site.GetPage "section" .Section }}
   {{ $isPost := eq .Section "posts" }}
+  {{ $isAbout := eq .Section "about" }}
 
   <article class="flex-l mw8 center ph3 flex-wrap justify-between">
     <header class="mt4 w-100">
@@ -42,6 +43,13 @@
       {{ end }}
 
       {{- .Content -}}
+
+      {{ if $isAbout }}
+        <section class="about-contact mt5 pt4 bt b--black-10 not-serif">
+          {{ partial "lead-magnet.html" site.Data.contact }}
+        </section>
+      {{ end }}
+
       {{ if $isPost }}{{- partials.Include "tags.html" . -}}{{ end }}
       {{ if $isPost }}{{- partials.Include "post-endnotes.html" . -}}{{ end }}
     </div>

@@ -1,6 +1,6 @@
 baseURL = 'https://fzhang.dev/'
 languageCode = 'zh-cn'
-title = 'Frank Zhang'
+title = 'Frank Zhang 的技术与思考'
 theme = 'ananke'
 
 summaryLength = 120
@@ -44,6 +44,7 @@ toLower = true
   weight = 20
 
 [params]
+brand_name = 'Frank Zhang'
 description = '写 macOS、Vim、AI 与学习方法的实践与思考。'
 author = 'Frank Zhang'
 mainSections = ['posts']
