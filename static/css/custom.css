@@ -1,35 +1,248 @@
-/*
-  站点自定义样式尽量只做“补充层”，不直接破坏主题原有结构。
-  这样后续升级主题时，冲突面会更小。
-*/
+:root {
+  --paper: #f7f4ee;
+  --paper-strong: #efebe3;
+  --ink: #22211f;
+  --muted: #67615a;
+  --line: #d8d1c7;
+  --accent: #2f63d8;
+  --panel: #fbfaf7;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.serif,
+.athelas {
+  font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
+}
+
+.home-header-shell {
+  padding-bottom: 2.5rem;
+  background: linear-gradient(180deg, #2f2f32 0%, #333335 100%);
+}
+
+.home-header-shell--compact {
+  padding-bottom: 0.35rem;
+}
+
+.home-hero {
+  padding: 1.75rem 1rem 0;
+}
+
+.home-hero-inner {
+  max-width: 70rem;
+}
+
+.home-hero-title {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.92);
+  font-family: "Avenir Next", Avenir, "Helvetica Neue", sans-serif;
+  font-size: clamp(2.8rem, 6vw, 4.8rem);
+  font-weight: 300;
+  line-height: 1.04;
+  letter-spacing: -0.035em;
+  text-align: center;
+}
+
+.home-hero-copy {
+  max-width: 34rem;
+  margin: 1rem auto 0;
+  color: rgba(255, 255, 255, 0.64);
+  font-size: 1.05rem;
+  line-height: 1.8;
+  text-align: center;
+}
+
+.home-shell {
+  padding-bottom: 4rem;
+}
 
 .home-intro {
+  margin-top: 3.2rem;
+  padding-bottom: 0.5rem;
   text-align: left;
 }
 
-.home-intro p:first-child {
-  font-size: 1.15rem;
-  color: #1f2937;
+.home-intro p {
+  margin-top: 0;
+  margin-bottom: 1.25rem;
+  font-size: 1.12rem;
+  line-height: 1.9;
 }
 
-.home-focus-grid,
-.home-more-posts,
-.post-related-grid,
-.post-nav-grid,
-.home-split-grid {
-  display: grid;
-  gap: 0.75rem;
+.home-intro p:first-child {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.home-focus,
+.home-stream {
+  margin-top: 2.75rem;
+}
+
+.home-section-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.home-kicker {
+  margin: 0 0 0.35rem;
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.home-section-copy {
+  max-width: 28rem;
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+.home-inline-link {
+  color: var(--ink);
+  border-bottom: 1px solid var(--line);
 }
 
 .home-focus-grid {
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
 }
 
-.home-split-grid {
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+.home-focus-card,
+.home-post-card,
+.lead-magnet-box,
+.taxonomy-card,
+.post-nav-card,
+.post-related-card,
+.post-side-card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 1.25rem;
+  box-shadow: none;
 }
 
-.home-more-posts,
+.home-focus-card {
+  display: block;
+  padding: 1.3rem 1.35rem;
+  transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+}
+
+.home-focus-card:hover,
+.taxonomy-card:hover,
+.post-nav-card:hover,
+.post-related-card:hover,
+.home-post-card:hover {
+  transform: translateY(-2px);
+  border-color: #b9b1a6;
+  background: #fffdf9;
+}
+
+.home-focus-card h3 {
+  color: var(--ink);
+  line-height: 1.18;
+}
+
+.home-focus-card p {
+  color: var(--muted);
+  line-height: 1.75;
+}
+
+.home-quick-links {
+  display: flex;
+  gap: 0.85rem;
+  margin-top: 1.75rem;
+  flex-wrap: wrap;
+}
+
+.home-quick-link,
+.post-side-action {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.72rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.home-quick-link:hover,
+.post-side-action:hover {
+  background: #fffdf9;
+}
+
+.home-post-card {
+  border-radius: 0;
+  border-left: 0;
+  border-right: 0;
+  border-top: 0;
+  background: transparent;
+}
+
+.home-post-card .db {
+  background: transparent;
+}
+
+.home-post-card h3,
+.home-post-card p,
+.home-post-card .f6 {
+  color: var(--ink);
+}
+
+.home-post-card .f6.mid-gray,
+.home-post-card p,
+.home-post-card .nested-links p {
+  color: var(--muted) !important;
+}
+
+.lead-magnet-box {
+  max-width: none;
+  padding: 1.35rem 1.5rem;
+  text-align: left;
+  background: #f1ede6;
+}
+
+.lead-magnet-copy,
+.contact-info p,
+.contact-qrcode figcaption {
+  color: var(--muted);
+}
+
+.contact-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.contact-qrcode {
+  margin: 0;
+}
+
+.contact-qrcode img {
+  width: 112px;
+  height: 112px;
+  border-radius: 0.85rem;
+}
+
+.taxonomy-grid,
+.post-related-grid,
+.post-nav-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.taxonomy-grid,
 .post-related-grid {
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
 }
@@ -38,121 +251,29 @@
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
 }
 
-.home-focus-card,
-.home-more-post,
-.lead-magnet-box,
-.home-panel,
+.taxonomy-card,
 .post-nav-card,
 .post-related-card,
 .post-side-card {
-  background: #ffffff;
-  border: 1px solid #dbe4f0;
-  border-radius: 1rem;
-  box-shadow: 0 8px 30px rgba(15, 23, 42, 0.06);
-}
-
-.home-focus-card,
-.home-more-post,
-.post-nav-card,
-.post-related-card {
   display: block;
-  transition: transform 0.18s ease, box-shadow 0.18s ease;
-}
-
-.home-focus-card {
-  padding: 0.95rem;
-}
-
-.home-focus-card:hover,
-.home-more-post:hover,
-.post-nav-card:hover,
-.post-related-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 36px rgba(15, 23, 42, 0.1);
-}
-
-.home-panel {
-  padding: 0.95rem;
-}
-
-.home-panel-list {
-  display: grid;
-  gap: 0.9rem;
-}
-
-.home-panel-item h4,
-.home-panel-item p {
-  margin-left: 0;
-}
-
-.home-quick-links,
-.post-side-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-}
-
-.home-quick-link,
-.post-side-action {
-  display: inline-flex;
-  align-items: center;
-  padding: 0.55rem 0.9rem;
-  border-radius: 999px;
-  background: #eef4ff;
-  color: #1d4ed8;
-  font-weight: 600;
-}
-
-.home-more-post,
-.post-nav-card,
-.post-related-card {
-  padding: 0.85rem 0.95rem;
-}
-
-.home-post-card p {
-  margin-top: 0.5rem;
-  margin-bottom: 0;
-}
-
-.lead-magnet-box {
-  max-width: 32rem;
-  margin: 0 auto;
-  padding: 1rem;
-  text-align: center;
-  background: linear-gradient(180deg, #f8fbff 0%, #ffffff 100%);
-}
-
-.lead-magnet-copy {
-  margin-top: 0.75rem;
-  color: #4b5563;
-}
-
-.contact-info {
-  margin-top: 1rem;
-}
-
-.contact-info p {
-  margin: 0.4rem 0;
-}
-
-.contact-qrcode {
-  margin: 1rem auto 0;
-}
-
-.contact-qrcode img {
-  width: 150px;
-  height: 150px;
-  border-radius: 0.75rem;
-}
-
-.contact-qrcode figcaption {
-  margin-top: 0.5rem;
-  font-size: 0.9rem;
-  color: #6b7280;
+  padding: 1rem 1.1rem;
 }
 
 .post-tldr {
-  border-left: 4px solid #2563eb;
+  border-left: 3px solid var(--accent);
+  background: #f8f4ed;
+}
+
+.single-page-content {
+  padding-top: 0.25rem;
+}
+
+.single-page-content h2 {
+  margin-top: 2.6rem;
+}
+
+.single-page-content h3 {
+  margin-top: 1.6rem;
 }
 
 .post-side-card + .post-side-card {
@@ -164,52 +285,47 @@
 }
 
 .post-cta {
-  border: 1px solid #dbe4f0;
+  border: 1px solid var(--line);
+  background: #f8f4ed;
 }
 
-@media (max-width: 30em) {
-  .home-intro p:first-child {
-    font-size: 1.05rem;
+@media (max-width: 60rem) {
+  .home-focus-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .home-section-heading {
+    align-items: start;
   }
 }
 
+@media (max-width: 30em) {
+  .home-hero {
+    padding-top: 0.75rem;
+  }
 
-.taxonomy-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 0.75rem;
-}
+  .home-hero-title {
+    font-size: 2.4rem;
+    text-align: left;
+  }
 
-.taxonomy-card {
-  display: block;
-  padding: 0.95rem;
-  background: #ffffff;
-  border: 1px solid #dbe4f0;
-  border-radius: 1rem;
-  box-shadow: 0 8px 30px rgba(15, 23, 42, 0.06);
-  transition: transform 0.18s ease, box-shadow 0.18s ease;
-}
+  .home-hero-copy {
+    margin-left: 0;
+    margin-right: 0;
+    text-align: left;
+    font-size: 0.98rem;
+  }
 
-.taxonomy-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 36px rgba(15, 23, 42, 0.1);
-}
+  .home-intro {
+    margin-top: 2.1rem;
+  }
 
+  .home-intro p {
+    font-size: 1.03rem;
+    line-height: 1.8;
+  }
 
-.taxonomy-card .link + .link {
-  margin-top: 0.35rem;
-}
-
-
-.home-focus {
-  margin-top: 0.5rem;
-}
-
-.home-panel {
-  background: #f8fafc;
-}
-
-.post-tldr {
-  padding-top: 0.9rem;
-  padding-bottom: 0.9rem;
+  .contact-info {
+    align-items: start;
+  }
 }

@@ -1,9 +1,8 @@
 baseURL = 'https://fzhang.dev/'
 languageCode = 'zh-cn'
-title = 'Frank Zhang的个人网站'
+title = 'Frank Zhang'
 theme = 'ananke'
 
-# 让分类、标签、相关文章和菜单显式可见，减少对主题默认行为的依赖。
 summaryLength = 120
 enableRobotsTXT = true
 
@@ -29,11 +28,11 @@ toLower = true
   pattern = '2006'
 
 [menu]
-
   [[menu.main]]
   name = '起步'
   pageRef = '/start-here'
   weight = 5
+
   [[menu.main]]
   name = '文章'
   pageRef = '/posts'
@@ -45,7 +44,7 @@ toLower = true
   weight = 20
 
 [params]
-description = 'Frank Zhang 的个人网站，分享 macOS、Vim、AI 与学习方法的一手实践与思考。'
+description = '写 macOS、Vim、AI 与学习方法的实践与思考。'
 author = 'Frank Zhang'
 mainSections = ['posts']
 recent_posts_number = 4

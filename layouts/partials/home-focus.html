@@ -1,13 +1,13 @@
-{{/*
-  首页主题区从 data/home.toml 读取，方便后续把“栏目化”继续扩展成真正的内容架构。
-*/}}
 {{ with site.Data.home }}
   {{ $home := . }}
-  <section class="home-focus w-100 w-70-ns center ph3 ph4-ns pb3 pb4-ns" aria-labelledby="home-focus-title">
-    <div class="home-focus-header mb3">
-      <h2 id="home-focus-title" class="f2 near-black mv0">现在主要在写什么</h2>
+  <section class="home-focus w-100 w-70-ns center ph3 ph4-ns" aria-labelledby="home-focus-title">
+    <div class="home-section-heading mb4">
+      <div>
+        <p class="home-kicker">Focus</p>
+        <h2 id="home-focus-title" class="f1-l f2 mv1 near-black">现在主要在写什么</h2>
+      </div>
       {{ with $home.intro }}
-        <p class="mid-gray lh-copy mt2 mb0">{{ . }}</p>
+        <p class="home-section-copy mv0">{{ . }}</p>
       {{ end }}
     </div>
 
@@ -15,42 +15,12 @@
       <div class="home-focus-grid">
         {{ range . }}
           <a class="home-focus-card link dark-gray" href="{{ .url | relURL }}">
-            <h3 class="f4 mv0">{{ .title }}</h3>
-            <p class="mt2 mb0 lh-copy">{{ .description }}</p>
+            <h3 class="f3 mv0 serif">{{ .title }}</h3>
+            <p class="mt3 mb0 lh-copy">{{ .description }}</p>
           </a>
         {{ end }}
       </div>
     {{ end }}
-
-    <div class="home-split-grid mt4">
-      {{ with $home.audiences }}
-        <section class="home-panel" aria-labelledby="home-audience-title">
-          <h3 id="home-audience-title" class="f4 mt0 mb3">这个网站更适合谁看</h3>
-          <div class="home-panel-list">
-            {{ range . }}
-              <div class="home-panel-item">
-                <h4 class="f5 mt0 mb2">{{ .title }}</h4>
-                <p class="mv0 lh-copy">{{ .description }}</p>
-              </div>
-            {{ end }}
-          </div>
-        </section>
-      {{ end }}
-
-      {{ with $home.principles }}
-        <section class="home-panel" aria-labelledby="home-principles-title">
-          <h3 id="home-principles-title" class="f4 mt0 mb3">我会坚持的写作原则</h3>
-          <div class="home-panel-list">
-            {{ range . }}
-              <div class="home-panel-item">
-                <h4 class="f5 mt0 mb2">{{ .title }}</h4>
-                <p class="mv0 lh-copy">{{ .description }}</p>
-              </div>
-            {{ end }}
-          </div>
-        </section>
-      {{ end }}
-    </div>
 
     {{ with $home.quick_links }}
       <div class="home-quick-links mt4">

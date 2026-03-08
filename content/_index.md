@@ -1,6 +1,6 @@
 +++
-title = 'Frank Zhang 的个人网站'
-description = '分享 macOS、Vim、AI 与学习方法的一手实践与思考。'
+title = 'Frank Zhang'
+description = '写 macOS、Vim、AI 与学习方法的实践与思考。'
 +++
 
 你好，我是 Frank Zhang。

@@ -1,59 +1,41 @@
 {{ define "title" }}{{ .Site.Title }}{{ end }}
 
 {{ define "main" }}
-  {{/*
-    首页结构做了三件事：
-    1. 显式使用 posts 作为主内容区，避免依赖主题默认值。
-    2. 把首页正文、主题导航、最近文章拆开，提升可读性。
-    3. 联系方式改为读取 data 文件，后续改邮箱或二维码不需要再改模板。
-  */}}
-
   {{ $mainSections := site.Params.mainSections | compare.Default (collections.Slice "posts") }}
   {{ $recentPages := collections.Where site.RegularPages.ByDate.Reverse "Section" "in" $mainSections }}
   {{ $recentCount := $.Param "recent_posts_number" | compare.Default 4 }}
 
-  {{ with .Content }}
-    <article class="home-intro cf ph3 ph5-l pv3 pv4-l f4 center measure-wide lh-copy nested-links {{ $.Param "text_color" | compare.Default "mid-gray" }}">
-      {{ . }}
-    </article>
-  {{ end }}
+  <div class="home-shell">
+    {{ with .Content }}
+      <article class="home-intro ph3 ph5-l pv4 center measure-wide lh-copy nested-links {{ $.Param "text_color" | compare.Default "mid-gray" }}">
+        {{ . }}
+      </article>
+    {{ end }}
 
-  {{ partial "home-focus.html" . }}
+    {{ partial "home-focus.html" . }}
 
-  {{ if gt (len $recentPages) 0 }}
-    <section class="pa3 pa4-ns w-100 w-70-ns center" aria-labelledby="recent-posts-title">
-      <div class="flex items-center justify-between flex-wrap mb3">
-        <h2 id="recent-posts-title" class="f2 near-black mv0">最近更新</h2>
-        <a href="{{ "/posts/" | relURL }}" class="link blue dim fw6">查看全部文章 →</a>
-      </div>
-
-      <div class="w-100 mw8">
-        {{ range collections.First $recentCount $recentPages }}
-          <div class="w-100 mb4 relative">
-            {{ .Render "summary-with-image" }}
+    {{ if gt (len $recentPages) 0 }}
+      <section class="home-stream pa3 pa4-ns w-100 w-70-ns center" aria-labelledby="recent-posts-title">
+        <div class="home-section-heading mb4">
+          <div>
+            <p class="home-kicker">Latest</p>
+            <h2 id="recent-posts-title" class="f1-l f2 mv1 near-black">最近更新</h2>
           </div>
-        {{ end }}
-      </div>
+          <a href="{{ "/posts/" | relURL }}" class="home-inline-link link dim fw6">查看全部文章 →</a>
+        </div>
 
-      <div class="w-100 mt4 center tc">
-        {{ partial "lead-magnet.html" site.Data.contact }}
-      </div>
+        <div class="w-100 mw8">
+          {{ range collections.First $recentCount $recentPages }}
+            <div class="w-100 mb4 relative">
+              {{ .Render "summary-with-image" }}
+            </div>
+          {{ end }}
+        </div>
+      </section>
+    {{ end }}
 
-      {{ if gt (len $recentPages) $recentCount }}
-        <section class="w-100 mt5" aria-labelledby="more-posts-title">
-          <h2 id="more-posts-title" class="f3">更多文章</h2>
-          <div class="home-more-posts">
-            {{ range collections.First 4 (collections.After $recentCount $recentPages) }}
-              <a href="{{ .RelPermalink }}" class="home-more-post link black dim">
-                <span class="db f5 fw6">{{ .Title }}</span>
-                {{ with .Params.summary }}
-                  <span class="db f6 mid-gray mt1">{{ . }}</span>
-                {{ end }}
-              </a>
-            {{ end }}
-          </div>
-        </section>
-      {{ end }}
+    <section class="pa3 pa4-ns w-100 w-70-ns center">
+      {{ partial "lead-magnet.html" site.Data.contact }}
     </section>
-  {{ end }}
+  </div>
 {{ end }}
