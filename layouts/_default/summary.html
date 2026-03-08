@@ -1,12 +1,16 @@
-<div class="w-100 mb4 nested-copy-line-height relative bg-white">
-  <article class="home-post-card">
-    <div class="mb3 pa4 gray overflow-hidden bg-white">
-      {{ with .CurrentSection.Title }}<span class="f7 db tracked ttu silver mb2">{{ . }}</span>{{ end }}
-      <p class="f7 tracked ttu silver mt0 mb2">{{ .Date | time.Format (compare.Default "2006-01-02" .Site.Params.date_format) }}</p>
-      <h3 class="f3 near-black mt0 mb2 lh-title">
+<article class="entry-card">
+  <div class="entry-card-inner">
+    <div class="entry-card-body">
+      <div class="entry-card-meta">
+        {{ with index (.GetTerms "categories") 0 }}
+          <span class="entry-card-tag">{{ .LinkTitle }}</span>
+        {{ end }}
+        <time class="entry-card-date">{{ .Date | time.Format (compare.Default "2006-01-02" .Site.Params.date_format) }}</time>
+      </div>
+      <h3 class="entry-card-title">
         <a href="{{ .RelPermalink }}" class="link black dim">{{ .Title }}</a>
       </h3>
-      <div class="nested-links f5 lh-copy nested-copy-line-height mid-gray">
+      <div class="entry-card-summary nested-links">
         {{ with .Description }}
           <p>{{ . }}</p>
         {{ else }}
@@ -15,5 +19,5 @@
       </div>
       <a href="{{ .RelPermalink }}" class="summary-link link dim fw6 mt3 dib">阅读全文 →</a>
     </div>
-  </article>
-</div>
+  </div>
+</article>

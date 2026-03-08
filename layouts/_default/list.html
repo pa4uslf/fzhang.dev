@@ -6,27 +6,30 @@
 
     {{ if eq .Section "posts" }}
       {{ with site.Data.reading.routes }}
-        <section class="mt5" aria-labelledby="reading-routes-title">
-          <div class="flex items-center justify-between flex-wrap mb3">
-            <h2 id="reading-routes-title" class="f2 mv0">推荐阅读路线</h2>
-            <a href="{{ "/start-here/" | relURL }}" class="link blue dim fw6">查看完整起步页 →</a>
+        <section class="mt5 archive-reading-routes" aria-labelledby="reading-routes-title">
+          <div class="home-section-heading mb4">
+            <div>
+              <p class="home-kicker">Guide</p>
+              <h2 id="reading-routes-title" class="f1-l f2 mv1 near-black">推荐阅读路线</h2>
+            </div>
+            <a href="{{ "/start-here/" | relURL }}" class="home-inline-link link dim fw6">查看完整起步页 →</a>
           </div>
 
           <div class="taxonomy-grid">
             {{ range . }}
-              <div class="taxonomy-card">
-                <h3 class="f4 mt0 mb2 near-black">{{ .title }}</h3>
+              <section class="taxonomy-card taxonomy-card--route">
+                <h3 class="f4 mt0 mb2 near-black athelas">{{ .title }}</h3>
                 <p class="mid-gray lh-copy mt0">{{ .description }}</p>
-                <div class="mt3">
+                <div class="mt3 route-links">
                   {{ range .links }}
                     {{ with site.GetPage . }}
-                      <a href="{{ .RelPermalink }}" class="db link dark-gray dim mb2">
+                      <a href="{{ .RelPermalink }}" class="db link dark-gray dim mb2 route-link">
                         <span class="fw6">{{ .Title }}</span>
                       </a>
                     {{ end }}
                   {{ end }}
                 </div>
-              </div>
+              </section>
             {{ end }}
           </div>
         </section>
@@ -34,17 +37,18 @@
     {{ end }}
 
     <section class="mt5">
-      <div class="flex items-center justify-between flex-wrap mb3">
-        <h2 class="f2 mv0">全部文章</h2>
+      <div class="home-section-heading mb4">
+        <div>
+          <p class="home-kicker">Archive</p>
+          <h2 class="f1-l f2 mv1 near-black">全部文章</h2>
+        </div>
         <p class="mid-gray mv2">共 {{ len .Paginator.Pages }} 篇</p>
       </div>
     </section>
 
-    <section class="flex-ns flex-wrap justify-around">
+    <section class="archive-grid">
       {{ range .Paginator.Pages }}
-        <div class="w-100 w-30-l mb4 relative bg-white">
-          {{ .Render "summary" }}
-        </div>
+        {{ .Render "summary" }}
       {{ end }}
     </section>
     {{- template "_internal/pagination.html" . -}}

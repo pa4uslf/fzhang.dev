@@ -1,6 +1,8 @@
 <aside class="lead-magnet-box" aria-labelledby="contact-card-title">
   <h2 id="contact-card-title" class="f3 mv0">{{ .title | default "联系方式" }}</h2>
-  <p class="lead-magnet-copy">{{ .description | default "欢迎直接联系我。" }}</p>
+  {{ with .description }}
+    <p class="lead-magnet-copy">{{ . }}</p>
+  {{ end }}
 
   <div class="contact-info">
     <div class="contact-meta">

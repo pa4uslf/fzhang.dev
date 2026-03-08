@@ -5,21 +5,24 @@
     </section>
 
     <section class="mt5" aria-labelledby="terms-title">
-      <div class="flex items-center justify-between flex-wrap mb3">
-        <h2 id="terms-title" class="f2 mv0">{{ .Title }}</h2>
+      <div class="home-section-heading mb4">
+        <div>
+          <p class="home-kicker">Topics</p>
+          <h2 id="terms-title" class="f1-l f2 mv1 near-black">{{ .Title }}</h2>
+        </div>
         <p class="mid-gray mv2">共 {{ len .Data.Pages }} 个主题</p>
       </div>
 
-      <div class="taxonomy-grid">
+      <div class="taxonomy-grid taxonomy-grid--topics">
         {{ range .Data.Pages.ByTitle }}
           <a href="{{ .RelPermalink }}" class="taxonomy-card link dark-gray dim">
-            <span class="db f4 fw6">{{ .LinkTitle }}</span>
+            <span class="db f3 fw6 athelas">{{ .LinkTitle }}</span>
             {{ with .Params.description }}
-              <span class="db f6 mid-gray mt2">{{ . }}</span>
+              <span class="db f6 mid-gray mt3 lh-copy">{{ . }}</span>
             {{ else }}
-              <span class="db f6 mid-gray mt2">{{ .Pages.Len }} 篇文章</span>
+              <span class="db f6 mid-gray mt3">{{ .Pages.Len }} 篇文章</span>
             {{ end }}
-            <span class="db blue fw6 mt3">查看这个主题 →</span>
+            <span class="summary-link link dim fw6 mt3 dib">进入专题 →</span>
           </a>
         {{ end }}
       </div>

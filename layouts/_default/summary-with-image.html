@@ -1,29 +1,30 @@
 {{ $featuredImage := partials.Include "func/GetFeaturedImage.html" . }}
-<article class="home-post-card">
-  <div class="db pv4 ph3 ph0-l dark-gray no-underline">
-    <div class="flex-column flex-row-ns flex">
-      {{ if $featuredImage }}
-        <div class="{{ compare.Conditional (compare.Eq $.Site.Language.LanguageDirection "rtl") "pl3-ns" "pr3-ns" }} mb4 mb0-ns w-100 w-40-ns">
-          <a href="{{ .RelPermalink }}" class="db grow post-card-image-link">
-            <img src="{{ $featuredImage }}" class="img br3" alt="{{ .Title }} 的封面图">
-          </a>
-        </div>
-      {{ end }}
+<article class="entry-card entry-card--feature">
+  <div class="entry-card-inner">
+    {{ if $featuredImage }}
+      <a href="{{ .RelPermalink }}" class="entry-card-media db grow">
+        <img src="{{ $featuredImage }}" class="img br3" alt="{{ .Title }} 的封面图">
+      </a>
+    {{ end }}
 
-      <div class="w-100{{ if $featuredImage }} w-60-ns {{ compare.Conditional (compare.Eq $.Site.Language.LanguageDirection "rtl") "pr3-ns" "pl3-ns" }}{{ end }}">
-        <p class="f7 tracked ttu silver mt0 mb2">{{ .Date | time.Format (compare.Default "2006-01-02" .Site.Params.date_format) }}</p>
-        <h3 class="f2-l f3 fw1 athelas mt0 mb2 lh-title">
-          <a href="{{ .RelPermalink }}" class="color-inherit dim link">{{ .Title }}</a>
-        </h3>
-        <div class="f5 lh-copy nested-copy-line-height nested-links mid-gray">
-          {{ with .Description }}
-            <p>{{ . }}</p>
-          {{ else }}
-            {{ .Summary }}
-          {{ end }}
-        </div>
-        <a href="{{ .RelPermalink }}" class="summary-link link dim fw6 mt3 dib">阅读全文 →</a>
+    <div class="entry-card-body">
+      <div class="entry-card-meta">
+        {{ with index (.GetTerms "categories") 0 }}
+          <span class="entry-card-tag">{{ .LinkTitle }}</span>
+        {{ end }}
+        <time class="entry-card-date">{{ .Date | time.Format (compare.Default "2006-01-02" .Site.Params.date_format) }}</time>
       </div>
+      <h3 class="entry-card-title athelas">
+        <a href="{{ .RelPermalink }}" class="color-inherit dim link">{{ .Title }}</a>
+      </h3>
+      <div class="entry-card-summary nested-links">
+        {{ with .Description }}
+          <p>{{ . }}</p>
+        {{ else }}
+          {{ .Summary }}
+        {{ end }}
+      </div>
+      <a href="{{ .RelPermalink }}" class="summary-link link dim fw6 mt3 dib">阅读全文 →</a>
     </div>
   </div>
 </article>

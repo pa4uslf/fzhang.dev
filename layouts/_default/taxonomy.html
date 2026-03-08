@@ -1,21 +1,39 @@
 {{ define "main" }}
+  {{ $pages := .Pages.ByDate.Reverse }}
+  {{ $featured := index $pages 0 }}
+  {{ $rest := after 1 $pages }}
+
   <article class="pa3 pa4-ns mw8 center">
     <section class="measure-wide lh-copy nested-links {{ $.Param "text_color" | compare.Default "mid-gray" }}">
       {{- .Content -}}
     </section>
 
     <section class="mt4 mb4 taxonomy-header" aria-labelledby="taxonomy-title">
-      <p class="f6 tracked ttu mid-gray mb2">{{ .Data.Singular | humanize }}</p>
-      <h2 id="taxonomy-title" class="f2 mv0">{{ .Title }}</h2>
-      <p class="mid-gray lh-copy mt3 mb0">这里共有 {{ len .Pages }} 篇相关文章，按时间倒序展示。</p>
+      <div class="home-section-heading mb4">
+        <div>
+          <p class="home-kicker">Category</p>
+          <h1 id="taxonomy-title" class="f1-l f2 mv1 near-black">{{ .Title }}</h1>
+        </div>
+        <p class="mid-gray lh-copy mv0">这里共有 {{ len .Pages }} 篇相关文章。</p>
+      </div>
     </section>
 
-    <section class="flex-ns flex-wrap justify-around">
-      {{ range .Pages.ByDate.Reverse }}
-        <div class="w-100 w-30-l mb4 relative bg-white">
-          {{ .Render "summary" }}
+    {{ with $featured }}
+      <section class="taxonomy-feature mb5">
+        <p class="home-kicker mb3">Featured</p>
+        {{ .Render "summary-with-image" }}
+      </section>
+    {{ end }}
+
+    {{ if gt (len $rest) 0 }}
+      <section>
+        <p class="home-kicker mb3">More in this topic</p>
+        <div class="archive-grid">
+          {{ range $rest }}
+            {{ .Render "summary" }}
+          {{ end }}
         </div>
-      {{ end }}
-    </section>
+      </section>
+    {{ end }}
   </article>
 {{ end }}
