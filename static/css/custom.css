@@ -231,7 +231,7 @@ body {
 }
 
 .contact-qrcode img {
-  width: 168px;
+  width: 186px;
   height: auto;
   display: block;
   border-radius: 0.65rem;
@@ -348,5 +348,5 @@ body {
 
 
 .about-contact .contact-qrcode img {
-  width: 196px;
+  width: 220px;
 }

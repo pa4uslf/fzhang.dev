@@ -1,16 +1,13 @@
 <aside class="lead-magnet-box" aria-labelledby="contact-card-title">
-  <h2 id="contact-card-title" class="f3 mv0">{{ .title | default "与我联系" }}</h2>
-  <p class="lead-magnet-copy">{{ .description | default "期待与你交流，共同成长。" }}</p>
+  <h2 id="contact-card-title" class="f3 mv0">{{ .title | default "联系方式" }}</h2>
+  <p class="lead-magnet-copy">{{ .description | default "欢迎直接联系我。" }}</p>
 
   <div class="contact-info">
     <div class="contact-meta">
-      {{ with .wechat }}
-        <p><strong>微信号：</strong>{{ . }}</p>
-      {{ end }}
-
       {{ with .email }}
         <p><strong>邮箱：</strong><a href="mailto:{{ . }}">{{ . }}</a></p>
       {{ end }}
+      <p><strong>微信：</strong>扫码添加</p>
     </div>
 
     {{ with .qrcode }}
