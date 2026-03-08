@@ -19,7 +19,7 @@ body {
 }
 
 .home-header-shell {
-  padding-bottom: 4rem;
+  padding-bottom: 5.25rem;
   background: linear-gradient(180deg, #2f2f32 0%, #343437 100%);
 }
 
@@ -33,7 +33,7 @@ body {
 }
 
 .home-hero {
-  padding: 4.4rem 1rem 3.2rem;
+  padding: 5.5rem 1rem 4.5rem;
 }
 
 .home-hero-inner {
@@ -43,7 +43,6 @@ body {
 
 .home-hero-title {
   margin: 0;
-  color: rgba(255, 255, 255, 0.94) !important;
   font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
   font-size: clamp(3rem, 6.2vw, 5.1rem);
   font-weight: 600;
@@ -55,8 +54,7 @@ body {
 
 .home-hero-copy {
   max-width: 38rem;
-  margin: 1.3rem auto 0;
-  color: rgba(255, 255, 255, 0.76) !important;
+  margin: 2rem auto 0;
   font-size: 1.08rem;
   line-height: 1.9;
   text-align: center;
@@ -288,7 +286,7 @@ body {
 
 @media (max-width: 30em) {
   .home-hero {
-    padding: 2.8rem 1rem 2.2rem;
+    padding: 3.3rem 1rem 2.7rem;
   }
 
   .home-hero-title {
@@ -299,6 +297,7 @@ body {
   .home-hero-copy {
     margin-left: 0;
     margin-right: 0;
+    margin-top: 1.5rem;
     text-align: left;
     font-size: 0.98rem;
   }

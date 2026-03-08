@@ -1,17 +1,13 @@
 {{ with site.Data.home }}
-  {{ $home := . }}
   <section class="home-focus w-100 w-70-ns center ph3 ph4-ns" aria-labelledby="home-focus-title">
     <div class="home-section-heading mb4">
       <div>
         <p class="home-kicker">Focus</p>
         <h2 id="home-focus-title" class="f1-l f2 mv1 near-black">现在主要在写什么</h2>
       </div>
-      {{ with $home.intro }}
-        <p class="home-section-copy mv0">{{ . }}</p>
-      {{ end }}
     </div>
 
-    {{ with $home.focus_areas }}
+    {{ with .focus_areas }}
       <div class="home-focus-grid">
         {{ range . }}
           <a class="home-focus-card link dark-gray" href="{{ .url | relURL }}">

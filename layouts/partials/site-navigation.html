@@ -1,12 +1,14 @@
 <nav class="pv3 ph3 ph4-ns" role="navigation">
-  <div class="flex-l center items-center justify-between">
-    <a href="{{ .Site.Home.RelPermalink }}" class="f3 fw2 hover-white white-90 dib no-underline home-brand-mark">
-      {{ with .Site.Params.site_logo }}
-        <img src="{{ urls.RelURL . }}" class="w100 mw5-ns" alt="{{ $.Site.Title }}" />
-      {{ else }}
-        {{ .Site.Params.brand_name | compare.Default .Site.Title }}
-      {{ end }}
-    </a>
+  <div class="flex-l center items-center {{ if .IsHome }}justify-end{{ else }}justify-between{{ end }}">
+    {{ if not .IsHome }}
+      <a href="{{ .Site.Home.RelPermalink }}" class="f4 fw2 hover-white white-90 dib no-underline home-brand-mark">
+        {{ with .Site.Params.site_logo }}
+          <img src="{{ urls.RelURL . }}" class="w100 mw5-ns" alt="{{ $.Site.Title }}" />
+        {{ else }}
+          {{ .Site.Params.brand_name | compare.Default .Site.Title }}
+        {{ end }}
+      </a>
+    {{ end }}
     <div class="flex-l items-center">
       {{ partials.Include "i18nlist.html" . }}
       {{ if .Site.Menus.main }}
@@ -20,7 +22,9 @@
           {{ end }}
         </ul>
       {{ end }}
-      {{ partials.IncludeCached "social/follow.html" . }}
+      {{ if not .IsHome }}
+        {{ partials.IncludeCached "social/follow.html" . }}
+      {{ end }}
     </div>
   </div>
 </nav>

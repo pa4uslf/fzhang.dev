@@ -7,9 +7,9 @@
       {{ partials.Include "site-navigation.html" . }}
       <div class="home-hero tc-l ph3 ph4-ns">
         <div class="home-hero-inner center">
-          <h1 class="home-hero-title">{{ .Title | compare.Default .Site.Title }}</h1>
+          <h1 class="home-hero-title white-90">{{ .Title | compare.Default .Site.Title }}</h1>
           {{ with .Params.description }}
-            <p class="home-hero-copy">{{ . }}</p>
+            <p class="home-hero-copy white-70">{{ . }}</p>
           {{ end }}
         </div>
       </div>
@@ -22,9 +22,9 @@
       {{ if .IsHome }}
         <div class="home-hero tc-l ph3 ph4-ns">
           <div class="home-hero-inner center">
-            <h1 class="home-hero-title">{{ .Title | compare.Default .Site.Title }}</h1>
+            <h1 class="home-hero-title white-90">{{ .Title | compare.Default .Site.Title }}</h1>
             {{ with .Params.description }}
-              <p class="home-hero-copy">{{ . }}</p>
+              <p class="home-hero-copy white-70">{{ . }}</p>
             {{ end }}
           </div>
         </div>
