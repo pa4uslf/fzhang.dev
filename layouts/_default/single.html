@@ -5,20 +5,18 @@
 {{ define "main" }}
   {{ $page := . }}
   {{ $section := .Site.GetPage "section" .Section }}
+  {{ $isPost := eq .Section "posts" }}
 
   <article class="flex-l mw8 center ph3 flex-wrap justify-between">
     <header class="mt4 w-100">
       <aside class="instapaper_ignoref b helvetica tracked ttu">
         {{ .CurrentSection.Title }}
       </aside>
-      {{- partials.IncludeCached "social/share.html" . . -}}
+      {{ if $isPost }}{{- partials.IncludeCached "social/share.html" . . -}}{{ end }}
       <h1 class="f1 athelas mt3 mb1">{{ .Title }}</h1>
 
       {{ with .Params.author | compare.Default .Site.Params.author }}
         <p class="tracked">
-          {{- if compare.Eq $page.Language "de" "en" "es" "fr" "it" "no" "pt" -}}
-            {{- lang.Translate "by" -}}
-          {{ end -}}
           <strong>
             {{- if reflect.IsSlice . -}}
               {{ collections.Delimit . ", " | transform.Markdownify }}
@@ -29,19 +27,19 @@
         </p>
       {{ end }}
 
-      {{ if not .Date.IsZero }}
+      {{ if and $isPost (not .Date.IsZero) }}
         <time class="f6 mv4 dib tracked" {{ fmt.Printf `datetime="%s"` (.Date.Format "2006-01-02T15:04:05Z07:00") | safe.HTMLAttr }}>
           {{- .Date | time.Format (compare.Default "2006-01-02" .Site.Params.date_format) -}}
         </time>
       {{ end }}
 
-      {{ if (or (compare.Eq (.Param "show_reading_time") true) (compare.Eq $section.Params.show_reading_time true)) }}
+      {{ if and $isPost (or (compare.Eq (.Param "show_reading_time") true) (compare.Eq $section.Params.show_reading_time true)) }}
         <span class="f6 mv4 dib tracked"> - {{ lang.Translate "readingTime" .ReadingTime }} </span>
         <span class="f6 mv4 dib tracked"> - {{ lang.Translate "wordCount" .WordCount }} </span>
       {{ end }}
     </header>
 
-    <div class="nested-copy-line-height lh-copy {{ $.Param "post_content_classes" | compare.Default "serif" }} f4 nested-links {{ $.Param "text_color" | compare.Default "mid-gray" }} {{ compare.Conditional (compare.Eq $.Site.Language.LanguageDirection "rtl") "pl4-l" "pr4-l" }} w-two-thirds-l">
+    <div class="nested-copy-line-height lh-copy {{ $.Param "post_content_classes" | compare.Default "serif" }} f4 nested-links {{ $.Param "text_color" | compare.Default "mid-gray" }} {{ compare.Conditional (compare.Eq $.Site.Language.LanguageDirection "rtl") "pl4-l" "pr4-l" }} {{ if $isPost }}w-two-thirds-l{{ else }}measure-wide center w-100{{ end }}">
       {{ with .Params.summary }}
         <section class="post-tldr not-serif bg-near-white br3 pa3 pa4-ns mb4" aria-labelledby="post-tldr-title">
           <p id="post-tldr-title" class="f6 fw7 tracked ttu mv0 dark-gray">TL;DR</p>
@@ -50,8 +48,8 @@
       {{ end }}
 
       {{- .Content -}}
-      {{- partials.Include "tags.html" . -}}
-      {{- partials.Include "post-endnotes.html" . -}}
+      {{ if $isPost }}{{- partials.Include "tags.html" . -}}{{ end }}
+      {{ if $isPost }}{{- partials.Include "post-endnotes.html" . -}}{{ end }}
 
       <div class="mt6 instapaper_ignoref">
         {{ if .Site.Config.Services.Disqus.Shortname }}
@@ -63,8 +61,10 @@
       </div>
     </div>
 
-    <aside class="w-30-l mt6-l">
-      {{- partials.Include "menu-contextual.html" . -}}
-    </aside>
+    {{ if $isPost }}
+      <aside class="w-30-l mt6-l">
+        {{- partials.Include "menu-contextual.html" . -}}
+      </aside>
+    {{ end }}
   </article>
 {{ end }}

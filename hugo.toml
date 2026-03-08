@@ -68,4 +68,4 @@ profilelink = 'mailto:pa4uslf@qq.com'
 
 [params.ananke.social.rss]
 label = 'RSS'
-profilelink = '/index.xml'
+profilelink = '/subscribe/'

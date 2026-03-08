@@ -50,4 +50,4 @@ url = '/about/'
 
 [[quick_links]]
 label = '订阅 RSS'
-url = '/index.xml'
+url = '/subscribe/'

@@ -1,0 +1,36 @@
+{{ $featuredImage := partials.Include "func/GetFeaturedImage.html" . }}
+{{ if $featuredImage }}
+  {{ $featuredImageClass := site.Params.featured_image_class | compare.Default "cover bg-top" }}
+  <header class="{{ $featuredImageClass }}" style="background-image: url('{{ $featuredImage }}');">
+    {{ $coverDimmingClass := site.Params.cover_dimming_class | compare.Default "bg-black-60" }}
+    <div class="{{ $coverDimmingClass }}">
+      {{ partials.Include "site-navigation.html" . }}
+      <div class="tc-l pv3 pv4-l ph3 ph4-ns">
+        <h1 class="f2 f1-l fw2 white-90 mb0 lh-title">
+          {{ .Title | compare.Default .Site.Title }}
+        </h1>
+        {{ with .Params.description }}
+          <h2 class="fw1 f5 f4-l white-80 measure-wide-l center mt2 mb0 lh-copy">
+            {{ . }}
+          </h2>
+        {{ end }}
+      </div>
+    </div>
+  </header>
+{{ else }}
+  <header>
+    <div class="pb2-m pb3-l {{ .Site.Params.background_color_class | compare.Default "bg-black" }}">
+      {{ partials.Include "site-navigation.html" . }}
+      <div class="tc-l pv2 ph3 ph4-ns">
+        <h1 class="f2 f-subheadline-l fw2 light-silver mb0 lh-title">
+          {{ .Title | compare.Default .Site.Title }}
+        </h1>
+        {{ with .Params.description }}
+          <h2 class="fw1 f5 white-80 measure-wide-l center lh-copy mt2 mb3">
+            {{ . }}
+          </h2>
+        {{ end }}
+      </div>
+    </div>
+  </header>
+{{ end }}
